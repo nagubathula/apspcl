@@ -32,7 +32,7 @@ const ImageSlider = () => {
     }, []);
   
     return (
-      <div className="relative">
+      <div className="z-0">
         <div className="overflow-hidden relative aspect-[2.2/1]">
           <img
             src={images[currentIndex]}
@@ -40,7 +40,7 @@ const ImageSlider = () => {
             className="w-full h-full object-cover transition-transform duration-3000 ease-in-out"
           />
         </div>
-        <div className="absolute bottom-4 left-0 right-0 flex justify-center space-x-2">
+        <div className="relative bottom-4 left-0 right-0 flex justify-center space-x-2">
           {images.map((_, index) => (
             <button
               key={index}

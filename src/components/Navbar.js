@@ -1,7 +1,7 @@
-"use client"
+"use client";
 import React, { useState } from "react";
 import menuData from "@/data/menuData.json";
-import { MenuIcon, XIcon, ChevronDownIcon } from '@heroicons/react/outline';
+import { MenuIcon, XIcon, ChevronDownIcon } from "@heroicons/react/outline";
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -13,11 +13,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="bg-blue-600 shadow-md">
+    <div className="z-50 bg-blue-600 shadow-md">
       <nav className="container mx-auto px-4 py-6 md:px-2">
         <div className="flex justify-between items-center">
-       
-
           {/* Menu Toggle for Mobile */}
           <div className="md:hidden">
             <button
@@ -54,7 +52,9 @@ const Navbar = () => {
                 {menuItem.subItems.length > 0 && (
                   <ul
                     className={`absolute left-0 hidden group-hover:block bg-blue-800 text-white rounded-md py-1 mt-2 ${
-                      activeMenuIndex === index ? 'opacity-100' : 'opacity-0 pointer-events-none'
+                      activeMenuIndex === index
+                        ? "opacity-100"
+                        : "opacity-0 pointer-events-none"
                     } transition-opacity duration-300`}
                     onMouseEnter={() => setActiveMenuIndex(index)}
                     onMouseLeave={() => setActiveMenuIndex(null)}

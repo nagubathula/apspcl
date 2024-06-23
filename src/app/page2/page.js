@@ -33,9 +33,12 @@ const cards = [
 export default function Home() {
   return (
     <div>
-      <Header />
-      <Navbar />
-      <div className="max-w-7xl mx-auto flex flex-row gap-8 py-8">
+      <div className="z-50">
+        <Header />
+        <Navbar />
+      </div>
+
+      <div className="z-0 max-w-7xl mx-auto flex flex-row gap-8 py-8">
         <div className="w-9/12">
           <ImageSlider />
           {/* <QuickLink2 /> */}
@@ -48,12 +51,15 @@ export default function Home() {
             <Carousel cards={cards} />
           </div>
         </div>
-        <div className="w-3/12 flex flex-col gap-4">
+        <div id="sticky" className="w-3/12 flex flex-col gap-4 sticky top-0">
           <People />
           <QuickLink />
         </div>
       </div>
-      <FooterLinks />
+
+      <section>
+        <FooterLinks />
+      </section>
     </div>
   );
 }

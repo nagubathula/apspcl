@@ -30,9 +30,9 @@ const cards = [
 export default function Home() {
   return (
     <div>
-      <Header />
-      <Navbar />
+     
       <div className="max-w-7xl mx-auto flex flex-col gap-2">
+        
         <ImageSlider />
         <QuickLink />
         <AboutApspcl />
