@@ -1,10 +1,10 @@
 import React from "react";
 
-const AboutApspcl = () => {
+const About = () => {
   return (
     <div className="aboutApspcl bg-white  rounded-lg p-6 flex flex-row gap-8">
       <div className="w-1/2 pr-8 flex flex-col gap-4">
-        <div className="font-semibold text-lg">ABOUT APSPCL</div>
+        <div className="font-semibold text-xl">ABOUT APSPCL</div>
         <div className="font-light">
           Ministry of New and renewable Energy (MNRE), Govt. Of India has drawn
           up a scheme to set up number of solar parks across various states in
@@ -69,4 +69,4 @@ const AboutApspcl = () => {
   );
 };
 
-export default AboutApspcl;
+export default About;

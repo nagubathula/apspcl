@@ -25,50 +25,26 @@ const quickLinksData = {
 
 const QuickLink = () => {
   return (
-    <div className="flex flex-wrap justify-center gap-8 md:justify-between md:gap-0">
+    <div className=" ">
       {/* First Column */}
-      <div className="p-4 bg-gray-100 rounded-lg">
-        <div className="moreLinks">
-          <div className="q-links">
-            <h3 className="text-xl font-bold mb-4 tex-left">Quick Links</h3>
-            <ul
-              className="text-sm nice-scroll overflow-y-auto max-h-72 outline-none"
-              tabIndex="0"
-            >
-              {quickLinksData.quickLinks.map((link, index) => (
-                <li key={index} className="py-1">
-                  <a
-                    href={link.url}
-                    className="text-blue-500 hover:underline"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    {link.text}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      {/* Second Column */}
-      <div className="  p-4">
-        <img
-          src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/andhra-pradesh.png"
-          alt="Andhra Pradesh Logo"
-          className="mx-auto rounded-lg shadow-md"
-        />
-      </div>
-
-      {/* Third Column */}
-      <div className=" p-4 bg-gray-100 rounded-lg">
-        <div className="flex flex-row justify-between">
-          <h3 className="text-xl font-bold mb-4 text-left">News & Events</h3>
-
-          <a href="https://www.apspcl.ap.gov.in/news" className="btn Btn_news ">
-            View All <i className="ti-angle-right ml-1"></i>
-          </a>
+      <div className="w-full flex  flex-col  p-4 bg-gray-100 rounded-lg">
+        <h3 className="text-xl font-bold mb-4 tex-left">Quick Links</h3>
+        <div
+          className="text-sm nice-scroll overflow-y-auto max-h-72 outline-none"
+          tabIndex="0"
+        >
+          {quickLinksData.quickLinks.map((link, index) => (
+            <div key={index} className="py-1">
+              <a
+                href={link.url}
+                className="text-blue-500 hover:underline"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {link.text}
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     </div>
