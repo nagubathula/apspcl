@@ -1,0 +1,77 @@
+{
+    "menuItems": [
+      {
+        "label": "Home",
+        "link": "https://www.apspcl.ap.gov.in/",
+        "subItems": []
+      },
+      {
+        "label": "About us",
+        "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/",
+        "subItems": [
+          { "label": "Introduction", "link": "https://www.apspcl.ap.gov.in/introductions" },
+          { "label": "Objectives", "link": "https://www.apspcl.ap.gov.in/objectives" },
+          { "label": "Board Of Directors", "link": "https://www.apspcl.ap.gov.in/directors" },
+          { "label": "Vision & Mission", "link": "https://www.apspcl.ap.gov.in/missions" },
+          { "label": "Equity Holding", "link": "https://www.apspcl.ap.gov.in/equityholding" },
+          { "label": "Organization Structure", "link": "https://www.apspcl.ap.gov.in/organizationStructure" }
+        ]
+      },
+      {
+        "label": "Background",
+        "link": "https://www.apspcl.ap.gov.in/content/background",
+        "subItems": [
+          { "label": "Designated Officers Under RTI Act-2005", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/44944069.pdf" },
+          { "label": "Under section 4(1) (b) (XV) of RTI Act", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/29284544.pdf" },
+          { "label": "Scope", "link": "https://www.apspcl.ap.gov.in/content/scope" },
+          { "label": "Sale of Power", "link": "https://www.apspcl.ap.gov.in/content/saleofpower" },
+          { "label": "Roles & Responsibilities", "link": "https://www.apspcl.ap.gov.in/content/roles-and-responsibility" }
+        ]
+      },
+      {
+        "label": "SOLAR PARKS",
+        "link": "#",
+        "subItems": [
+          { "label": "Ananthapuramu Ultra Mega Solar Park (1500 MW)", "link": "https://www.apspcl.ap.gov.in/content/galiveedu-evacuation" },
+          { "label": "Kurnool Ultra Mega Solar Park (1000 MW)", "link": "https://www.apspcl.ap.gov.in/content/kurnoolultramegasolarparks" },
+          { "label": "Kadapa Ultra Mega Solar Park (1000 MW)", "link": "https://www.apspcl.ap.gov.in/content/kadapa-ultra-mega-solar-park-1000-mw-1" },
+          { "label": "Ananthapuramu-II Ultra Mega Solar Park (500 MW)", "link": "https://www.apspcl.ap.gov.in/content/anantapuramu-ii-ultramegasolarpark" }
+        ]
+      },
+      {
+        "label": "SOLAR POLICIES",
+        "link": "#",
+        "subItems": [
+          { "label": "CSR Policy 2018", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/36909623.pdf" },
+          { "label": "CSR Policy", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/78386403.pdf" },
+          { "label": "Scheme For Development Of Solar Parks", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/82780570.pdf" },
+          { "label": "AP Solar Policy 2015", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/54246653.pdf" },
+          { "label": "JNNSM", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/76063616.pdf" },
+          { "label": "NSM Phase-II Guidelines", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/78343828.pdf" },
+          { "label": "Solar Park Guidelines", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/79345129.pdf" },
+          { "label": "VGF Scheme Guidelines", "link": "https://www.apspcl.ap.gov.in/uploads/solarpolicies/55125213.pdf" }
+        ]
+      },
+      {
+        "label": "REPORTS",
+        "link": "https://www.apspcl.ap.gov.in/reports",
+        "subItems": []
+      },
+      {
+        "label": "TENDERS",
+        "link": "https://www.apspcl.ap.gov.in/tenders",
+        "subItems": []
+      },
+      {
+        "label": "CONTACT US",
+        "link": "https://www.apspcl.ap.gov.in/contactus",
+        "subItems": []
+      },
+      {
+        "label": "PHOTO GALLERY",
+        "link": "https://www.apspcl.ap.gov.in/photogallery",
+        "subItems": []
+      }
+    ]
+  }
+  

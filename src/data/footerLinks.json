@@ -1,0 +1,33 @@
+[
+    {
+      "id": 1,
+      "imageUrl": "/images/objectives-icon.png",
+      "text": "Objectives",
+      "link": "https://www.apspcl.ap.gov.in/objectives"
+    },
+    {
+      "id": 2,
+      "imageUrl": "/images/vision-mission-icon.png",
+      "text": "Vision & Mission",
+      "link": "https://www.apspcl.ap.gov.in/missions"
+    },
+    {
+      "id": 3,
+      "imageUrl": "/images/board-of-directors-icon.png",
+      "text": "Board Of Directors",
+      "link": "https://www.apspcl.ap.gov.in/directors"
+    },
+    {
+      "id": 4,
+      "imageUrl": "/images/equity-holding-icon.png",
+      "text": "Equity Holding",
+      "link": "https://www.apspcl.ap.gov.in/equityholding"
+    },
+    {
+      "id": 5,
+      "imageUrl": "/images/organization-structure-icon.png",
+      "text": "Organization Structure",
+      "link": "https://www.apspcl.ap.gov.in/organizationStructure"
+    }
+  ]
+  
