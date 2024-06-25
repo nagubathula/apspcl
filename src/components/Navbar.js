@@ -13,7 +13,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="z-50 bg-blue-600 shadow-md">
+    <div className=" z-50 bg-blue-600 shadow-md">
       <nav className="container mx-auto px-4 py-6 md:px-2">
         <div className="flex justify-between items-center">
           {/* Menu Toggle for Mobile */}
@@ -84,7 +84,7 @@ const Navbar = () => {
                 <li key={index}>
                   <a
                     href={menuItem.link}
-                    className="block px-4 py-2 hover:bg-blue-400 flex items-center justify-between"
+                    className="px-4 py-2 hover:bg-blue-400 flex items-center justify-between"
                     onClick={() => setMenuOpen(false)} // Close menu on mobile link click
                   >
                     <span>{menuItem.label}</span>
