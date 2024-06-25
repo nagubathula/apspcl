@@ -32,12 +32,11 @@ const cards = [
 
 export default function Home() {
   return (
-    <div>
-      <div className="z-50">
+    <div className="relative">
+      <div className="relative z-50">
         <Header />
         <Navbar />
       </div>
-
       <div className="z-0 max-w-7xl mx-auto flex flex-row gap-8 py-8">
         <div className="w-9/12">
           <ImageSlider />
