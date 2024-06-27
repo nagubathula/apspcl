@@ -1,5 +1,6 @@
 // components/ApspclTable.js
 "use client";
+import Link from "next/link";
 // components/ApspclTable.js
 import React, { useState, useEffect } from "react";
 import apspclData from "@/data/ApspclData.json"; // Adjust path as per your project structure
@@ -78,14 +79,14 @@ const ApspclTable = () => {
                   {item["Tender Notification"]}
                 </td>
                 <td className="py-2 px-4 text-xs border-b border-gray-200">
-                  <a
+                  <Link
                     href={item["Link"]}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"
                   >
                     {item["Description"]}
-                  </a>
+                  </Link>
                 </td>
                 <td className="py-2 px-4 border-b border-gray-200">
                   {item["Closing Date"]}
