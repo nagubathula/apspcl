@@ -66,11 +66,6 @@
         "label": "CONTACT US",
         "link": "/contactus",
         "subItems": []
-      },
-      {
-        "label": "PHOTO GALLERY",
-        "link": "/photogallery",
-        "subItems": []
       }
     ]
   }

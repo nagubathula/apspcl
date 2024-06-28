@@ -11,8 +11,8 @@ const Header = () => {
           </a>
         </div>
         <div className="text-center">
-          <h3 className="text-xl font-semibold">Andhra Pradesh Solar Power Corporation Private Limited</h3>
-          <p className="text-lg">(A JV Company of Govt of Andhra Pradesh &amp; Govt of India)</p>
+          <h3 className="text-3xl font-semibold text-green-600">Andhra Pradesh Solar Power Corporation Private Limited</h3>
+          <p className="text-2xl text-pink-400 font-semibold">(A JV Company of Govt of Andhra Pradesh &amp; Govt of India)</p>
         </div>
         <div className="flex items-center">
           <img src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/govt-logo.png" alt="govt-logo" className="w-32"/>

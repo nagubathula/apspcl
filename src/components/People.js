@@ -8,18 +8,18 @@ const peopleData = [
     designation: "Hon'ble Chief Minister Government of Andhra Pradesh",
     imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
   },
-  {
-    id: 2,
-    name: "Shri Konidela Pawan Kalyan",
-    designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
-    imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
-  },
-  {
-    id: 3,
-    name: "Shri Konidela Pawan Kalyan",
-    designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
-    imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
-  },
+  // {
+  //   id: 2,
+  //   name: "Shri Konidela Pawan Kalyan",
+  //   designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
+  //   imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
+  // },
+  // {
+  //   id: 3,
+  //   name: "Shri Konidela Pawan Kalyan",
+  //   designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
+  //   imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
+  // },
     // {
     //   id: 4,
     //   name: "Shri Konidela Pawan Kalyan",
