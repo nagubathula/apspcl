@@ -37,12 +37,12 @@ export default function Home() {
         <Header />
         <Navbar />
       </div>
-      <div className="my-8 max-w-7xl mx-auto flex flex-row gap-8 py-8">
-        <div className="w-9/12">
+      <div className="my-8 max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 py-8 px-4 sm:px-6 lg:px-8">
+        <div className="w-full lg:w-9/12">
           <ImageSlider />
           {/* <QuickLink2 /> */}
           {/* <AboutApspcl /> */}
-          <div className="bg-gray-100">
+          <div className="bg-gray-100 mt-4 lg:mt-8">
             <About />
           </div>
           <div className="container mx-auto p-4">
@@ -50,12 +50,11 @@ export default function Home() {
             <Carousel cards={cards} />
           </div>
         </div>
-        <div id="sticky" className="w-3/12 flex flex-col gap-4">
+        <div id="sticky" className="w-full lg:w-3/12 flex flex-col gap-4 mt-8 lg:mt-0">
           <People />
           <QuickLink />
         </div>
       </div>
-
       <FooterLinks />
     </div>
   );
