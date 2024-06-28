@@ -24,7 +24,6 @@ const ApspclReports = () => {
 
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold mb-8 text-center">APSPCL Reports</h1>
       <div className="flex items-center justify-between mb-8">
         <div className="flex items-center space-x-4">
           <span className="text-gray-700">Search :</span>
@@ -70,9 +69,9 @@ const ApspclReports = () => {
           </button>
         </div>
       </div>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto text-left text-sm">
         <table className="min-w-full bg-white border rounded-lg shadow-md">
-          <thead className="bg-gray-800 text-white">
+          <thead className="bg-gray-100 border ">
             <tr>
               <th className="py-2 px-4">Type</th>
               <th className="py-2 px-4">Report Name</th>
@@ -81,7 +80,7 @@ const ApspclReports = () => {
           </thead>
           <tbody className="text-gray-700">
             {filteredReports.map((report, index) => (
-              <tr key={index} className="bg-gray-100 border-b">
+              <tr key={index} className="bg-gray-50 border-b">
                 <td className="py-3 px-4">{report.Type}</td>
                 <td className="py-3 px-4">{report["REPORT NAME"]}</td>
                 <td className="py-3 px-4">
