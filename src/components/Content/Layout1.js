@@ -50,27 +50,27 @@ const Scope = () => {
 
   return (
     <div className="flex min-h-[36rem]">
-      <div className="w-1/4 bg-gray-50 text-gray-800 p-4">
+      <div className="w-1/4 bg-gray-100 text-gray-800 p-4">
         <nav>
           <ul>
             {menuData.menuItems.map((item, index) => (
-              <li key={index} className="">
+              <li key={index} className="mb-4">
                 {item.dropdown ? (
                   <>
                     <button
-                      className="w-full text-left flex items-center py-2 px-4  border border-black/10 hover:bg-white focus:outline-none focus:bg-gray-200"
+                      className="w-full text-left flex items-center py-2 px-4 rounded-lg hover:bg-gray-300 focus:outline-none focus:bg-gray-300"
                       onClick={() => toggleDropdown(index)}
                     >
                       <span className="text-sm font-medium">{item.title}</span>
                       <ChevronDownIcon className="h-5 w-5 ml-auto" />
                     </button>
                     {openDropdown === index && (
-                      <ul className="tex-sm">
+                      <ul className="ml-4 mt-2">
                         {item.dropdownItems.map((dropdownItem, idx) => (
-                          <li key={idx} className="border-l border-r">
+                          <li key={idx} className="mb-2">
                             <a
                               href={dropdownItem.link}
-                              className="block py-2 px-4 text-sm  hover:bg-white  "
+                              className="block py-2 px-4 rounded-lg hover:bg-gray-300"
                             >
                               {dropdownItem.title}
                             </a>
@@ -82,7 +82,7 @@ const Scope = () => {
                 ) : (
                   <a
                     href={item.link}
-                    className="w-full text-left py-2 px-4 block  border border-black/10 hover:bg-white "
+                    className="w-full text-left py-2 px-4 rounded-lg block hover:bg-gray-300"
                   >
                     <span className="text-sm font-medium">{item.title}</span>
                   </a>
