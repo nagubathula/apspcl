@@ -20,9 +20,9 @@ const AboutApspcl = () => {
   ];
   return (
     <div>
-      <div className="aboutApspcl  rounded-lg p-6 flex flex-row gap-8">
-        <div className="w-1/2 pr-8 flex flex-col gap-4">
-          <div className="font-bold text-xl text-pink-500 ">ABOUT APSPCL</div>
+      <div className="aboutApspcl rounded-lg p-6 flex flex-col lg:flex-row gap-8">
+        <div className="w-full lg:w-1/2 lg:pr-8 flex flex-col gap-4">
+          <div className="font-bold text-xl text-pink-500">ABOUT APSPCL</div>
           <div className="font-light">
             Ministry of New and renewable Energy (MNRE), Govt. Of India has
             drawn up a scheme to set up number of solar parks across various
@@ -34,42 +34,43 @@ const AboutApspcl = () => {
             transmission and evacuation lines, access roads, availability of
             water and others, in a focused manner.
           </div>
-
           <div>
             <a
-              href="#_"
-              class="px-5 py-2.5 relative rounded group overflow-hidden font-light border border-gray-300 text-gray-800 inline-block"
+              href="/introduction"
+              className="px-5 py-2.5 relative rounded group overflow-hidden font-light border border-gray-300 text-gray-800 inline-block"
             >
-              <span class="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-pink-500 group-hover:h-full opacity-90"></span>
-              <span class="relative group-hover:text-white">
+              <span className="absolute top-0 left-0 flex w-full h-0 mb-0 transition-all duration-200 ease-out transform translate-y-0 bg-pink-500 group-hover:h-full opacity-90"></span>
+              <span className="relative group-hover:text-white">
                 {"> "}Read More
               </span>
             </a>
           </div>
         </div>
-        <div className=" w-1/2 p-4">
+        <div className="w-full lg:w-1/2 p-4">
           <img
             src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/andhra-pradesh.png"
             alt="Andhra Pradesh Logo"
-            className="mx-auto rounded-lg "
+            className="mx-auto rounded-lg"
           />
         </div>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-8">
         {visionMissionData.map((item) => (
           <div key={item.id} className="flex gap-4 mb-8">
-            <div className="flex flex-col">
-              <div>
-                <div className="h-28 w-28 aspect-square rounded-full flex items-center justify-center overflow-hidden">
-                  <img
-                    src={item.imageUrl}
-                    alt={`${item.type} Logo`}
-                    className="max-w-full"
-                  />
-                </div>
-                <div className="font-semibold text-xl mb-2">{item.type}</div>
+            <div className="flex flex-col items-center md:items-start">
+              <div className="h-28 w-28 aspect-square rounded-full flex items-center justify-center overflow-hidden">
+                <img
+                  src={item.imageUrl}
+                  alt={`${item.type} Logo`}
+                  className="max-w-full"
+                />
               </div>
-              <div className="font-light text-gray-700">{item.text}</div>
+              <div className="font-semibold text-xl mb-2 text-center md:text-left">
+                {item.type}
+              </div>
+              <div className="font-light text-gray-700 text-center md:text-left">
+                {item.text}
+              </div>
             </div>
           </div>
         ))}
