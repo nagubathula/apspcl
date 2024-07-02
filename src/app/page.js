@@ -46,7 +46,7 @@ export default function Home() {
             <About />
           </div>
           <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">Card Carousel</h1>
+            <h1 className="text-2xl font-bold mb-4">Solar Parks</h1>
             <Carousel cards={cards} />
           </div>
         </div>
