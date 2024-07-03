@@ -1,0 +1,32 @@
+import Header from "@/components/Header1";
+import Navbar from "@/components/Navbar";
+import ImageSlider from "@/components/ImageSlider";
+import QuickLink from "@/components/QuickLink";
+import QuickLink2 from "@/components/QuickLink2";
+import Image from "next/image";
+import AboutApspcl from "@/components/AboutApspcl";
+import Carousel from "@/components/Carousel";
+import FooterLinks from "@/components/FooterLinks";
+import People from "@/components/People";
+import About from "@/components/About";
+import Scope from "@/components/Content/Scope/Scope";
+import Objectives from "@/components/Objectives/Objectives";
+import Ananthapuramu from "@/components/Content/Ananthapuramu";
+
+export default function Home() {
+  return (
+    <div className="relative">
+      <div className="relative z-50">
+        <Header />
+        <Navbar />
+      </div>
+      <div className="max-w-7xl mx-auto">
+        <Ananthapuramu />
+      </div>
+
+      {/* Your other components go here */}
+
+      <FooterLinks />
+    </div>
+  );
+}

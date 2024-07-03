@@ -1,31 +1,56 @@
 "use client"
-import React from "react";
+import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 
-// Example JSON data array
-const peopleData = [
-  {
+// // Example JSON data array
+// const peopleData = [
+//   {
    
-    name: "Shri Nara Chandra Babu Naidu",
-    designation: "Hon'ble Chief Minister Government of Andhra Pradesh",
-    imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
-  },
-  {
+//     name: "Shri Nara Chandra Babu Naidu",
+//     designation: "Hon'ble Chief Minister Government of Andhra Pradesh",
+//     imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
+//   },
+//   {
 
-    name: "Shri Konidela Pawan Kalyan",
-    designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
-    imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
-  },
+//     name: "Shri Konidela Pawan Kalyan",
+//     designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
+//     imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
+//   },
 
-];
+// ];
 
 const People = () => {
+
+  const [people, setPeople] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchPeople = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/people');
+        setPeople(response.data);
+      } catch (err) {
+        setError('Failed to fetch people data');
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPeople();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>{error}</p>;
+
   return (
     <div className="grid grid-cols-1 gap-4 ">
-      {peopleData.map((person) => (
-        <div key={person.id} className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3">
+      {people.map((person) => (
+        <div key={person._id} className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3">
           <img
             className="w-full"
-            src={person.imageUrl}
+            src={`http://localhost:3000/${person.filepath}`}
             alt="Person"
           />
           <div className="px-4 py-4">
