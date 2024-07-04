@@ -4,7 +4,7 @@ import React from 'react';
 const Header = () => {
   return (
     <header className="bg-white shadow">
-      <div className="container mx-auto flex justify-between items-center py-4 px-6">
+      <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex items-center">
           <a href="https://www.apspcl.ap.gov.in/">
             <img src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/logo.png" alt="logo-image" className="w-32"/>
