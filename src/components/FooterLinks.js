@@ -10,12 +10,12 @@ const FooterLinks = () => {
       text: "Objectives",
       link: "https://www.apspcl.ap.gov.in/objectives",
     },
-    {
-      id: 2,
-      imageUrl: "/images/vision-mission-icon.png",
-      text: "Vision & Mission",
-      link: "https://www.apspcl.ap.gov.in/missions",
-    },
+    // {
+    //   id: 2,
+    //   imageUrl: "/images/vision-mission-icon.png",
+    //   text: "Vision & Mission",
+    //   link: "https://www.apspcl.ap.gov.in/missions",
+    // },
     {
       id: 3,
       imageUrl: "/images/board-of-directors-icon.png",
@@ -38,7 +38,7 @@ const FooterLinks = () => {
 
   return (
     <div className="pageWidth">
-      <div className=" max-w-7xl mx-auto above-footer translate-y-6">
+      {/* <div className=" max-w-7xl mx-auto above-footer translate-y-6">
         <ul className="flex flex-wrap justify-between bg-indigo-200 px-4 py-2 space-x-4">
           {footerLinks.map((link) => (
             <li key={link.id} className="mb-2">
@@ -55,7 +55,7 @@ const FooterLinks = () => {
             </li>
           ))}
         </ul>
-      </div>
+      </div> */}
 
       <div className="justify-between py-8 bg-gray-200">
         <div className="max-w-7xl mx-auto flex flex-row justify-between">
