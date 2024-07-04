@@ -21,9 +21,9 @@ export default function Home() {
         <Header />
         <Navbar />
       </div>
-      <div className="container mx-auto">
+      <div className="max-w-7xl mx-auto">
         {/* <Ananthapuramu /> */}
-        <div className="container mx-auto p-4">
+        <div className="max-w-7xl mx-auto p-4">
           <header className="mb-8">
             <h1 className="text-4xl font-bold ">N.P. KUNTA</h1>
           </header>
@@ -53,6 +53,7 @@ export default function Home() {
                   Autocad Drawing-750 MW
                 </Link>
               </div>
+              <br /> <br />
               <h2 className="text-3xl font-semibold mb-4">Evacuation</h2>
               <div className="flex gap-4">
                 <Link
@@ -71,7 +72,7 @@ export default function Home() {
                 </Link>
               </div>
               <br /> <br />
-              <h2 className="text-3xl font-semibold mb-4">Generation</h2>
+              {/* <h2 className="text-3xl font-semibold mb-4">Generation</h2>
               <div className="flex gap-4">
                 <Link
                   href="uploads/solarparks/38707386.pdf"
@@ -87,25 +88,25 @@ export default function Home() {
                   {" "}
                   External Evacuation Plan
                 </Link>
-              </div>
-              <br /> <br />
+              </div> */}
+              {/* <br /> <br /> */}
               <h2 className="text-3xl font-semibold mb-4">
                 INFORMATION TO BIDDERS
               </h2>
               <div>
                 <table className="table-auto text-lg w-full">
                   <thead className="bg-gray-100 py-2">
-                    <tr class=" font-bold py-2">
-                      <td>SL.NO.</td>
-                      <td>DESCRIPTION</td>
-                      <td>LINK</td>
+                    <tr class=" font-bold py-4">
+                      <td className="py-2 px-3  border-t border-b border-black/10">SL.NO.</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">DESCRIPTION</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">LINK</td>
                     </tr>
                   </thead>
                   <tbody>
-                    <tr>
-                      <td>1</td>
-                      <td>Draft ISA for Phase-II (750 MW)</td>
-                      <td>
+                    <tr className="py-2">
+                      <td className="py-2 px-3  border-t border-b border-black/10">1</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">Draft ISA for Phase-II (750 MW)</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">
                         <Link
                           href="uploads/informationtobidder/information_42727075.pdf"
                           target="_blank"
@@ -116,9 +117,9 @@ export default function Home() {
                       </td>
                     </tr>
                     <tr>
-                      <td>2</td>
-                      <td>Draft LLA for Phase-II (750 MW)</td>
-                      <td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">2</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">Draft LLA for Phase-II (750 MW)</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">
                         <Link
                           href="uploads/informationtobidder/information_62852647.pdf"
                           target="_blank"
@@ -129,9 +130,9 @@ export default function Home() {
                       </td>
                     </tr>
                     <tr>
-                      <td>3</td>
-                      <td>Geological and Water Analysis Report for 750 MW</td>
-                      <td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">3</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">Geological and Water Analysis Report for 750 MW</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">
                         <Link
                           href="uploads/informationtobidder/information_43133976.pdf"
                           target="_blank"
@@ -142,9 +143,9 @@ export default function Home() {
                       </td>
                     </tr>
                     <tr>
-                      <td>4</td>
-                      <td>Single Line Diagram of 220/33 kV Pooling Station</td>
-                      <td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">4</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">Single Line Diagram of 220/33 kV Pooling Station</td>
+                      <td className="py-2 px-3  border-t border-b border-black/10">
                         <Link
                           href="uploads/informationtobidder/information_37082248.pdf"
                           target="_blank"
@@ -157,26 +158,13 @@ export default function Home() {
                   </tbody>
                 </table>
               </div>
-              <br /> <br />
-              <h3 className="text-3xl font-semibold mb-4">
-                ANANTHAPURAMU ULTRA MEGA SOLAR PARK (1500 MW) EVACUATION SYSTEM:
-              </h3>
-              <p className="mb-4">
-                PGCIL is establishing a 400/220 kV Grid Sub-station within the
-                Solar Park at NP Kunta Mandal for external evacuation.
-              </p>
-              <p className="mb-4">
-                APSPCL is establishing 220/33 kV Pooling Sub-stations and
-                connected transmission lines up to 400 kV Grid Sub-station for
-                internal evacuation, one 220/33 kV pooling sub-station for a
-                block of 250 MW Solar Power Plants. APTRANSCO is executing the
-                above works on behalf of APSPCL.
-              </p>
+            
             </div>
           </div>
         </div>
       </div>
-      <div className="container mx-auto">
+
+      <div className="max-w-7xl mx-auto border-t border-black/40 pt-8  ">
         {/* <Ananthapuramu /> */}
         <div className="container mx-auto p-4">
           <header className="mb-8">
