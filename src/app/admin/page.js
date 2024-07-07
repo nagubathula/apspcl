@@ -1,22 +1,12 @@
-"use client"
-import { useEffect, useState } from 'react';
-import { AuthProvider } from '../context/AuthContext';
+import ProtectedRoute from '@/components/ProtectedRoute';
 
-const MyApp = ({ Component, pageProps }) => {
-  const [authToken, setAuthToken] = useState(null);
-
-  useEffect(() => {
-    const token = localStorage.getItem('authToken');
-    if (token) {
-      setAuthToken(token);
-    }
-  }, []);
-
+const Dashboard = () => {
   return (
-    <AuthProvider>
-      <Component {...pageProps} authToken={authToken} />
-    </AuthProvider>
+    <ProtectedRoute>
+      <h1>Dashboard</h1>
+      <p>Only authenticated users can access this page.</p>
+    </ProtectedRoute>
   );
 };
 
-export default MyApp;
+export default Dashboard;
