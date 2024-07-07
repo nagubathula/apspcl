@@ -1,12 +1,22 @@
-import ProtectedRoute from '@/components/ProtectedRoute';
+"use client"
+import { useEffect, useState } from 'react';
+import { AuthProvider } from '../context/AuthContext';
 
-const Dashboard = () => {
+const MyApp = ({ Component, pageProps }) => {
+  const [authToken, setAuthToken] = useState(null);
+
+  useEffect(() => {
+    const token = localStorage.getItem('authToken');
+    if (token) {
+      setAuthToken(token);
+    }
+  }, []);
+
   return (
-    <ProtectedRoute>
-      <h1>Dashboard</h1>
-      <p>Only authenticated users can access this page.</p>
-    </ProtectedRoute>
+    <AuthProvider>
+      <Component {...pageProps} authToken={authToken} />
+    </AuthProvider>
   );
 };
 
-export default Dashboard;
+export default MyApp;
