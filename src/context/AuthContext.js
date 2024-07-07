@@ -18,19 +18,15 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
-  const login = async (formData) => {
-    const response = await fetch('/api/auth/login', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    });
-    const data = await response.json();
-    if (response.ok) {
-      return data;
-    } else {
-      throw new Error(data.msg || 'Login failed');
+  const login = async (userData) => {
+    try {
+      const res = await axios.post('/api/auth/login', userData);
+      const { token } = res.data;
+      localStorage.setItem('token', token); // Save token to localStorage
+      setUser(token);
+      router.push('/dashboard');
+    } catch (err) {
+      console.error('Login error:', err);
     }
   };
 
