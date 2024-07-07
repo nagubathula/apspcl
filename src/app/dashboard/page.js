@@ -1,4 +1,5 @@
-import ProtectedRoute from '@/components/ProtectedRoute';
+"use client";
+import ProtectedRoute from "@/components/ProtectedRoute";
 
 const Dashboard = () => {
   return (
