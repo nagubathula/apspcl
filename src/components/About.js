@@ -5,15 +5,13 @@ const AboutApspcl = () => {
     {
       id: 1,
       type: "VISION",
-      imageUrl:
-        "https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/vision-logo.png",
+      imageUrl: "/public/templates/apspclcms/images/vision-logo.png",
       text: "To be the best and largest Solar Park Developer in the World by harnessing immense potential available in the state of Andhra Pradesh for solar power generation.",
     },
     {
       id: 2,
       type: "MISSION",
-      imageUrl:
-        "https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/mision-logo.png",
+      imageUrl: "/public/templates/apspclcms/images/mision-logo.png",
       text: "To plan, develop and operate solar parks to promote generation of solar power most efficiently and economically to meet the energy requirements of Andhra Pradesh in a sustainable manner thereby reducing Green House Gases.",
     },
     // Add more objects as needed
@@ -48,7 +46,7 @@ const AboutApspcl = () => {
         </div>
         <div className="w-full lg:w-1/2 p-4">
           <img
-            src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/andhra-pradesh.png"
+            src="/public/templates/apspclcms/images/andhra-pradesh.png"
             alt="Andhra Pradesh Logo"
             className="mx-auto rounded-lg"
           />

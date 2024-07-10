@@ -15,9 +15,8 @@ import ContactPage from "@/components/ContactPage";
 const cards = [
   {
     title: "Kurnool",
-    imageUrl:
-      "https://www.apspcl.ap.gov.in/uploads/solarparks/solarparks_90379579.jpg",
-    link: "https://www.apspcl.ap.gov.in/content/kurnoolultramegasolarparks",
+    imageUrl: "/uploads/solarparks/solarparks_90379579.jpg",
+    link: "/content/kurnoolultramegasolarparks",
   },
   {
     title: "Card 2",
@@ -39,8 +38,7 @@ export default function Home() {
         <Navbar />
       </div>
       <div className="my-8 max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 py-8 px-4 sm:px-6 lg:px-8">
-       
-         <ContactPage />
+        <ContactPage />
       </div>
       <FooterLinks />
     </div>

@@ -6,7 +6,7 @@ const QuickLink2 = () => {
       {/* Second Column */}
       <div className=" w-1/2 p-4">
         <img
-          src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/andhra-pradesh.png"
+          src="/public/templates/apspclcms/images/andhra-pradesh.png"
           alt="Andhra Pradesh Logo"
           className="mx-auto rounded-lg "
         />
@@ -17,7 +17,7 @@ const QuickLink2 = () => {
         <div className="flex flex-row justify-between">
           <h3 className="text-xl font-bold mb-4 text-left">News & Events</h3>
 
-          <a href="https://www.apspcl.ap.gov.in/news" className="btn Btn_news ">
+          <a href="/news" className="btn Btn_news ">
             View All <i className="ti-angle-right ml-1"></i>
           </a>
         </div>

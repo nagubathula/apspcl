@@ -1,7 +1,7 @@
 // components/PeopleList.js
 "use client";
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 const PeopleList = () => {
   const [people, setPeople] = useState([]);
@@ -11,10 +11,10 @@ const PeopleList = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/people');
+        const response = await axios.get("/api/people");
         setPeople(response.data);
       } catch (err) {
-        setError('Failed to fetch people data');
+        setError("Failed to fetch people data");
         console.error(err);
       } finally {
         setLoading(false);

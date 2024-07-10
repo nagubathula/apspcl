@@ -14,9 +14,8 @@ import About from "@/components/About";
 const cards = [
   {
     title: "Kurnool",
-    imageUrl:
-      "https://www.apspcl.ap.gov.in/uploads/solarparks/solarparks_90379579.jpg",
-    link: "https://www.apspcl.ap.gov.in/content/kurnoolultramegasolarparks",
+    imageUrl: "/uploads/solarparks/solarparks_90379579.jpg",
+    link: "/content/kurnoolultramegasolarparks",
   },
   {
     title: "Card 2",

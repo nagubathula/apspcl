@@ -7,7 +7,7 @@ const Header = () => {
     <header className="bg-white shadow">
       <div className="max-w-7xl mx-auto flex justify-between items-center py-4 px-6">
         <div className="flex items-center">
-          <a href="https://www.apspcl.ap.gov.in/">
+          <a href="/">
             <Image
               height={110}
               width={115}

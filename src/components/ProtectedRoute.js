@@ -1,19 +1,19 @@
-"use client";
-import { useAuth } from '../context/AuthContext';
-import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+// app/components/ProtectedRoute.js
 
-const ProtectedRoute = ({ children }) => {
-  const { user } = useAuth();
+"use client";
+
+import { useEffect } from "react";
+import { useRouter } from "next/navigation";
+import { isAuthenticated } from "@/utils/auth";
+
+export default function ProtectedRoute({ children }) {
   const router = useRouter();
 
   useEffect(() => {
-    if (!user) {
-      router.push('/login');
+    if (!isAuthenticated()) {
+      router.push("/login");
     }
-  }, [user, router]);
+  }, [router]);
 
-  return user ? children : null;
-};
-
-export default ProtectedRoute;
+  return isAuthenticated() ? children : null;
+}

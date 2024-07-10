@@ -1,14 +1,13 @@
 {
-    "images": [
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_62292850.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_83059599.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_59631964.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_59082031.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_70581301.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_76788391.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_89020083.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_53913154.jpg",
-      "https://www.apspcl.ap.gov.in/uploads/gallery/banners_10890151.jpg"
-    ]
-  }
-  
+  "images": [
+    "/uploads/gallery/banners_62292850.jpg",
+    "/uploads/gallery/banners_83059599.jpg",
+    "/uploads/gallery/banners_59631964.jpg",
+    "/uploads/gallery/banners_59082031.jpg",
+    "/uploads/gallery/banners_70581301.jpg",
+    "/uploads/gallery/banners_76788391.jpg",
+    "/uploads/gallery/banners_89020083.jpg",
+    "/uploads/gallery/banners_53913154.jpg",
+    "/uploads/gallery/banners_10890151.jpg"
+  ]
+}

@@ -1,13 +1,14 @@
-"use client";
+// app/dashboard/page.js
+
 import ProtectedRoute from "@/components/ProtectedRoute";
 
-const Dashboard = () => {
+export default function DashboardPage() {
   return (
     <ProtectedRoute>
-      <h1>Dashboard</h1>
-      <p>Only authenticated users can access this page.</p>
+      <div>
+        <h1>Dashboard</h1>
+        <p>This is a protected page</p>
+      </div>
     </ProtectedRoute>
   );
-};
-
-export default Dashboard;
+}

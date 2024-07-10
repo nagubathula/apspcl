@@ -30,7 +30,7 @@ const About = () => {
         <div className="flex gap-4 mb-8">
           <div className="h-36 aspect-square border-2 border-gray-300 rounded-full flex items-center justify-center">
             <img
-              src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/vision-logo.png"
+              src="/public/templates/apspclcms/images/vision-logo.png"
               alt="Vision Logo"
               className=" "
             />
@@ -49,7 +49,7 @@ const About = () => {
         <div className="flex gap-4">
           <div className="h-36 aspect-square border-2 border-gray-300 rounded-full flex items-center justify-center">
             <img
-              src="https://www.apspcl.ap.gov.in/public/templates/apspclcms/images/mision-logo.png"
+              src="/public/templates/apspclcms/images/mision-logo.png"
               alt="Vision Logo"
               className=" max-w-full"
             />

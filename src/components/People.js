@@ -1,11 +1,11 @@
-"use client"
-import React, { useEffect, useState } from 'react';
-import axios from 'axios';
+"use client";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 
 // // Example JSON data array
 // const peopleData = [
 //   {
-   
+
 //     name: "Shri Nara Chandra Babu Naidu",
 //     designation: "Hon'ble Chief Minister Government of Andhra Pradesh",
 //     imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
@@ -20,7 +20,6 @@ import axios from 'axios';
 // ];
 
 const People = () => {
-
   const [people, setPeople] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -28,10 +27,10 @@ const People = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/people');
+        const response = await axios.get("/api/people");
         setPeople(response.data);
       } catch (err) {
-        setError('Failed to fetch people data');
+        setError("Failed to fetch people data");
         console.error(err);
       } finally {
         setLoading(false);
@@ -47,7 +46,10 @@ const People = () => {
   return (
     <div className="grid grid-cols-1 gap-4 ">
       {people.map((person) => (
-        <div key={person._id} className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3">
+        <div
+          key={person._id}
+          className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3"
+        >
           <img
             className="w-full"
             src={`http://localhost:3000/${person.filepath}`}

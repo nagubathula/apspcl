@@ -8,31 +8,31 @@ const FooterLinks = () => {
       id: 1,
       imageUrl: "/images/objectives-icon.png",
       text: "Objectives",
-      link: "https://www.apspcl.ap.gov.in/objectives",
+      link: "/objectives",
     },
     // {
     //   id: 2,
     //   imageUrl: "/images/vision-mission-icon.png",
     //   text: "Vision & Mission",
-    //   link: "https://www.apspcl.ap.gov.in/missions",
+    //   link: "/missions",
     // },
     {
       id: 3,
       imageUrl: "/images/board-of-directors-icon.png",
       text: "Board Of Directors",
-      link: "https://www.apspcl.ap.gov.in/directors",
+      link: "/directors",
     },
     {
       id: 4,
       imageUrl: "/images/equity-holding-icon.png",
       text: "Equity Holding",
-      link: "https://www.apspcl.ap.gov.in/equityholding",
+      link: "/equityholding",
     },
     {
       id: 5,
       imageUrl: "/images/organization-structure-icon.png",
       text: "Organization Structure",
-      link: "https://www.apspcl.ap.gov.in/organizationStructure",
+      link: "/organizationStructure",
     },
   ];
 

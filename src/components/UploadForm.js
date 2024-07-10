@@ -1,27 +1,27 @@
-"use client"
+"use client";
 // components/UploadForm.js
-import React, { useState } from 'react';
-import axios from 'axios';
+import React, { useState } from "react";
+import axios from "axios";
 
 const UploadForm = () => {
-  const [type, setType] = useState('');
-  const [reportname, setReportname] = useState('');
-  const [title, setTitle] = useState('');
+  const [type, setType] = useState("");
+  const [reportname, setReportname] = useState("");
+  const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
 
   const onSubmit = async (e) => {
     e.preventDefault();
 
     const formData = new FormData();
-    formData.append('type', type);
-    formData.append('reportname', reportname);
-    formData.append('title', title);
-    formData.append('file', file);
+    formData.append("type", type);
+    formData.append("reportname", reportname);
+    formData.append("title", title);
+    formData.append("file", file);
 
     try {
-      const res = await axios.post('http://localhost:5000/api/reports', formData, {
+      const res = await axios.post("/api/reports", formData, {
         headers: {
-          'Content-Type': 'multipart/form-data',
+          "Content-Type": "multipart/form-data",
         },
       });
       console.log(res.data);
@@ -48,7 +48,9 @@ const UploadForm = () => {
           </select>
         </div>
         <div>
-          <label className="block text-gray-700 font-medium mb-1">Report Name:</label>
+          <label className="block text-gray-700 font-medium mb-1">
+            Report Name:
+          </label>
           <input
             type="text"
             value={reportname}
@@ -88,4 +90,3 @@ const UploadForm = () => {
 };
 
 export default UploadForm;
-
