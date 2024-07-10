@@ -17,11 +17,15 @@ const PeopleForm = () => {
     formData.append("file", file);
 
     try {
-      const res = await axios.post("/api/people", formData, {
-        headers: {
-          "Content-Type": "multipart/form-data",
-        },
-      });
+      const res = await axios.post(
+        "http://localhost:5000/api/people",
+        formData,
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
       console.log(res.data);
     } catch (err) {
       console.error(err);
