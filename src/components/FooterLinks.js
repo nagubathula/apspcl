@@ -68,7 +68,7 @@ const FooterLinks = () => {
             <p>Flat No. 401 & 402, Garuda Enclave,</p>
             <p>Tadepalle - 522 501, Guntur District, Andhra Pradesh, India.</p>
           </div>
-          <div className="contact-info ">
+          {/* <div className="contact-info ">
             <p className="mb-2 font-bold">CONTACT US</p>
             <p>3rd Floor, Vidyut Soudha,</p>
             <p>Gunadala, Vijayawada – 520 004,</p>
@@ -76,7 +76,7 @@ const FooterLinks = () => {
             <p>APSPCL Correspondence Address:</p>
             <p>Flat No. 401 & 402, Garuda Enclave,</p>
             <p>Tadepalle - 522 501, Guntur District, Andhra Pradesh, India.</p>
-          </div>
+          </div> */}
         </div>
       </div>
     </div>
