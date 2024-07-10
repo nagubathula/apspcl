@@ -44,7 +44,7 @@ const FooterLinks = () => {
             <li key={link.id} className="mb-2">
               <Link href={link.link}>
                 <div className="flex items-center space-x-2">
-                  <img
+                  <Image
                     src={link.imageUrl}
                     alt={link.text}
                     className="w-6 h-6"

@@ -1,5 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+
 
 const images = [
   "/uploads/gallery/banners_62292850.jpg",
@@ -34,10 +36,13 @@ const ImageSlider = () => {
   return (
     <div className="z-0">
       <div className="overflow-hidden relative aspect-[2.2/1]">
-        <img
+        <Image
           src={images[currentIndex]}
           alt={`Slide ${currentIndex + 1}`}
           className="w-full h-full object-cover transition-transform duration-3000 ease-in-out"
+          width={500}
+          height={500}
+          // alt="Picture of the author"
         />
       </div>
       <div className="relative bottom-4 left-0 right-0 flex justify-center space-x-2">

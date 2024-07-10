@@ -14,18 +14,17 @@ import About from "@/components/About";
 const cards = [
   {
     title: "Kurnool",
-    imageUrl:
-      "/uploads/solarparks/solarparks_90379579.jpg",
+    imageUrl: "/uploads/solarparks/solarparks_90379579.jpg",
     link: "/content/kurnoolultramegasolarparks",
   },
   {
     title: "Card 2",
-    imageUrl: "https://via.placeholder.com/300",
+    imageUrl: "/logo.png",
     link: "https://example.com/2",
   },
   {
     title: "Card 3",
-    imageUrl: "https://via.placeholder.com/300",
+    imageUrl: "/logo.png",
     link: "https://example.com/3",
   },
 ];
@@ -45,12 +44,15 @@ export default function Home() {
           <div className="bg-gray-100 mt-4 lg:mt-8">
             <About />
           </div>
-          <div className="container mx-auto p-4">
+          {/* <div className="container mx-auto p-4">
             <h1 className="text-2xl font-bold mb-4">Solar Parks</h1>
             <Carousel cards={cards} />
-          </div>
+          </div> */}
         </div>
-        <div id="sticky" className="w-full lg:w-3/12 flex flex-col gap-4 mt-8 lg:mt-0">
+        <div
+          id="sticky"
+          className="w-full lg:w-3/12 flex flex-col gap-4 mt-8 lg:mt-0"
+        >
           <People />
           <QuickLink />
         </div>

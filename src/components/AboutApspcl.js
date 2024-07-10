@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 const About = () => {
   return (
@@ -29,10 +30,13 @@ const About = () => {
         {/* First Vision Section */}
         <div className="flex gap-4 mb-8">
           <div className="h-36 aspect-square border-2 border-gray-300 rounded-full flex items-center justify-center">
-            <img
-              src="/public/templates/apspclcms/images/vision-logo.png"
+            <Image
+              src="/images/vision-logo.png"
               alt="Vision Logo"
               className=" "
+              width={500}
+              height={500}
+              // alt="Picture of the author"
             />
           </div>
           <div className="flex flex-col justify-center">
@@ -48,8 +52,8 @@ const About = () => {
         {/* Second Vision Section */}
         <div className="flex gap-4">
           <div className="h-36 aspect-square border-2 border-gray-300 rounded-full flex items-center justify-center">
-            <img
-              src="/public/templates/apspclcms/images/mision-logo.png"
+            <Image
+              src="/images/mision-logo.png"
               alt="Vision Logo"
               className=" max-w-full"
             />

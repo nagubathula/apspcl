@@ -20,12 +20,12 @@ const cards = [
   },
   {
     title: "Card 2",
-    imageUrl: "https://via.placeholder.com/300",
+    imageUrl: "/logo.png",
     link: "https://example.com/2",
   },
   {
     title: "Card 3",
-    imageUrl: "https://via.placeholder.com/300",
+    imageUrl: "/logo.png",
     link: "https://example.com/3",
   },
 ];

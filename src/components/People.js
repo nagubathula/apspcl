@@ -1,6 +1,8 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import Image from "next/image";
+
 
 // // Example JSON data array
 // const peopleData = [
@@ -50,10 +52,13 @@ const People = () => {
           key={person._id}
           className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3"
         >
-          <img
+          <Image
             className="w-full"
             src={`http://localhost:3000/${person.filepath}`}
             alt="Person"
+            width={500}
+            height={500}
+            // alt="Picture of the author"
           />
           <div className="px-4 py-4">
             <div className="font-bold text-base text-center mb-2">

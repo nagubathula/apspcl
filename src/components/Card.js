@@ -1,5 +1,6 @@
 // ./components/Card.js
 import React from "react";
+import Image from "next/image";
 
 const Card = ({ title, imageUrl, link }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" className="block">
@@ -7,7 +8,14 @@ const Card = ({ title, imageUrl, link }) => (
       <div className="p-4">
         <h2 className="text-lg font-semibold">{title}</h2>
       </div>
-      <img src={imageUrl} alt={title} className="w-full h-64 object-cover" />
+      <Image
+        src={imageUrl}
+        alt={title}
+        width={500}
+        height={500}
+        // alt="Picture of the author"
+        className="w-full h-64 object-cover"
+      />
     </div>
   </a>
 );

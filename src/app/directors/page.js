@@ -15,18 +15,17 @@ import BoardofDirectors from "@/components/BoardofDirectors/BoardofDirectors";
 const cards = [
   {
     title: "Kurnool",
-    imageUrl:
-      "/uploads/solarparks/solarparks_90379579.jpg",
+    imageUrl: "/uploads/solarparks/solarparks_90379579.jpg",
     link: "/content/kurnoolultramegasolarparks",
   },
   {
     title: "Card 2",
-    imageUrl: "https://via.placeholder.com/300",
+    imageUrl: "/logo.png",
     link: "https://example.com/2",
   },
   {
     title: "Card 3",
-    imageUrl: "https://via.placeholder.com/300",
+    imageUrl: "/logo.png",
     link: "https://example.com/3",
   },
 ];

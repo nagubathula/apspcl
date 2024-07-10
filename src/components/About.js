@@ -1,17 +1,18 @@
 import React from "react";
+import Image from "next/image";
 
 const AboutApspcl = () => {
   const visionMissionData = [
     {
       id: 1,
       type: "VISION",
-      imageUrl: "/public/templates/apspclcms/images/vision-logo.png",
+      imageUrl: "/images/vision-logo.png",
       text: "To be the best and largest Solar Park Developer in the World by harnessing immense potential available in the state of Andhra Pradesh for solar power generation.",
     },
     {
       id: 2,
       type: "MISSION",
-      imageUrl: "/public/templates/apspclcms/images/mision-logo.png",
+      imageUrl: "/images/mision-logo.png",
       text: "To plan, develop and operate solar parks to promote generation of solar power most efficiently and economically to meet the energy requirements of Andhra Pradesh in a sustainable manner thereby reducing Green House Gases.",
     },
     // Add more objects as needed
@@ -45,9 +46,11 @@ const AboutApspcl = () => {
           </div>
         </div>
         <div className="w-full lg:w-1/2 p-4">
-          <img
-            src="/public/templates/apspclcms/images/andhra-pradesh.png"
+          <Image
+            src="/images/andhra-pradesh.png"
             alt="Andhra Pradesh Logo"
+            width={500}
+            height={500}
             className="mx-auto rounded-lg"
           />
         </div>
@@ -57,10 +60,13 @@ const AboutApspcl = () => {
           <div key={item.id} className="flex gap-4 mb-8">
             <div className="flex flex-col items-center md:items-start">
               <div className="h-28 w-28 aspect-square rounded-full flex items-center justify-center overflow-hidden">
-                <img
+                <Image
                   src={item.imageUrl}
                   alt={`${item.type} Logo`}
                   className="max-w-full"
+                  width={500}
+                  height={500}
+                  // alt="Picture of the author"
                 />
               </div>
               <div className="font-semibold text-xl mb-2 text-center md:text-left">

@@ -1,14 +1,18 @@
 import React from "react";
+import Image from "next/image";
 
 const QuickLink2 = () => {
   return (
     <div className="w-full flex flex-row justify-between my-2 bg-gray-50 ">
       {/* Second Column */}
       <div className=" w-1/2 p-4">
-        <img
-          src="/public/templates/apspclcms/images/andhra-pradesh.png"
+        <Image
+          src="/images/andhra-pradesh.png"
           alt="Andhra Pradesh Logo"
           className="mx-auto rounded-lg "
+          width={500}
+          height={500}
+          // alt="Picture of the author"
         />
       </div>
 

@@ -11,7 +11,7 @@ const Header = () => {
             <Image
               height={110}
               width={115}
-              src="/templates/apspclcms/images/logo.png"
+              src="/logo.png"
               alt="logo-image"
               className="w-32"
             />
@@ -29,7 +29,7 @@ const Header = () => {
           <Image
             height={82}
             width={89}
-            src="/templates/apspclcms/images/govt-logo.png"
+            src="/govt-logo.png"
             alt="govt-logo"
             className="w-32"
           />
