@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-
 // // Example JSON data array
 // const peopleData = [
 //   {
@@ -29,7 +28,7 @@ const People = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/people");
+        const response = await axios.get("http://16.170.215.0:5000/api/people");
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");

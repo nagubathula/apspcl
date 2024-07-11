@@ -18,7 +18,7 @@ const PeopleForm = () => {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/people",
+        "http://16.170.215.0:5000/api/people",
         formData,
         {
           headers: {

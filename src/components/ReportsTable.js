@@ -10,7 +10,7 @@ const ReportTable = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/reports");
+        const res = await axios.get("http://16.170.215.0:5000/api/reports");
         setReports(res.data);
       } catch (err) {
         console.error(err);
