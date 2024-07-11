@@ -1,10 +1,10 @@
 // app/components/Navigation.js
 
-"use client";
+'use client';
 
-import Link from "next/link";
-import { useRouter } from "next/navigation";
-import { useAuthContext } from "./AuthProvider";
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
+import { useAuthContext } from './AuthProvider';
 
 export default function Navigation() {
   const router = useRouter();
@@ -12,7 +12,7 @@ export default function Navigation() {
 
   const handleLogout = () => {
     logout();
-    router.push("/login");
+    router.push('/login');
   };
 
   return (
@@ -20,7 +20,7 @@ export default function Navigation() {
       <Link href="/">Home</Link>
       {isLoggedIn ? (
         <>
-          <Link href="/admin">admin</Link>
+          <Link href="/dashboard">Dashboard</Link>
           <button onClick={handleLogout}>Logout</button>
         </>
       ) : (

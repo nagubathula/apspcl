@@ -7,8 +7,7 @@ const PeopleForm = () => {
   const [name, setName] = useState("");
   const [designation, setDesignation] = useState("");
   const [file, setFile] = useState(null);
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
-  
+
   const onSubmit = async (e) => {
     e.preventDefault();
 
@@ -19,7 +18,7 @@ const PeopleForm = () => {
 
     try {
       const res = await axios.post(
-        `${apiUrl}/api/people`,
+        "http://localhost:5000/api/people",
         formData,
         {
           headers: {

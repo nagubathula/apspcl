@@ -1,4 +1,5 @@
 "use client";
+// components/UploadForm.js
 import React, { useState } from "react";
 import axios from "axios";
 
@@ -7,7 +8,6 @@ const UploadForm = () => {
   const [reportname, setReportname] = useState("");
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
-  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   const onSubmit = async (e) => {
     e.preventDefault();
@@ -20,7 +20,7 @@ const UploadForm = () => {
 
     try {
       const res = await axios.post(
-        `${apiUrl}/api/reports`,
+        "http://localhost:5000/api/reports",
         formData,
         {
           headers: {

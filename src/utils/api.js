@@ -1,7 +1,9 @@
-import axios from 'axios';
-import { getToken } from '@/utils/auth';
+// app/utils/api.js
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL; // Use environment variable
+import axios from 'axios';
+import { getToken } from './auth';
+
+const API_URL = 'http://localhost:5000/api';
 
 const api = axios.create({
   baseURL: API_URL,

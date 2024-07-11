@@ -1,17 +1,17 @@
-// pages/admin.js
+// pages/dashboard.js
 
-import Link from "next/link";
+import Link from 'next/link';
 
 export default function AdminNav() {
   const cards = [
-    { title: "Reports", href: "/admin/uploadreport" },
-    { title: "Upload People Photos", href: "/page2" },
-    { title: "Solar Parks", href: "/admin/Solarparks" },
-    { title: "Tenders", href: "/admin/tenders" },
-    { title: "Contact Us", href: "/admin/Contact" },
-    { title: "Page 6", href: "/page6" },
-    { title: "Page 7", href: "/page7" },
-    { title: "Page 8", href: "/page8" },
+    { title: 'Reports', href: '/admin/uploadreport' },
+    { title: 'Upload People Photos', href: '/page2' },
+    { title: 'Solar Parks', href: '/admin/Solarparks' },
+    { title: 'Tenders', href: '/admin/tenders' },
+    { title: 'Contact Us', href: '/admin/Contact' },
+    { title: 'Page 6', href: '/page6' },
+    { title: 'Page 7', href: '/page7' },
+    { title: 'Page 8', href: '/page8' },
   ];
 
   return (
