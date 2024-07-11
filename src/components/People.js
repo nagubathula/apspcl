@@ -25,11 +25,12 @@ const People = () => {
   const [people, setPeople] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/people");
+        const response = await axios.get(`${apiUrl}/api/people`);
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");
@@ -38,7 +39,6 @@ const People = () => {
         setLoading(false);
       }
     };
-
     fetchPeople();
   }, []);
 
@@ -54,7 +54,7 @@ const People = () => {
         >
           <Image
             className="w-full"
-            src={`http://localhost:3000/${person.filepath}`}
+            src={`/${person.filepath}`}
             alt="Person"
             width={500}
             height={500}

@@ -1,16 +1,16 @@
-// components/ReportTable.js
 "use client";
-// components/ReportTable.js
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 
 const ReportTable = () => {
   const [reports, setReports] = useState([]);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
+  const fileUrl = process.env.NEXT_PUBLIC_FILE_URL;
 
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/reports");
+        const res = await axios.get(`${apiUrl}/api/reports`);
         setReports(res.data);
       } catch (err) {
         console.error(err);
@@ -46,7 +46,7 @@ const ReportTable = () => {
               <td className="p-3 border-b border-gray-300">{report.title}</td>
               <td className="p-3 border-b border-gray-300">
                 <a
-                  href={`/${report.filepath}`}
+                  href={`${fileUrl}/${report.filepath}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-blue-500 hover:underline"

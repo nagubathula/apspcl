@@ -1,4 +1,4 @@
-'use client'
+"use client";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -29,7 +29,7 @@ export default function RootLayout({ children }) {
       <body>
         <div>
           <Link href="/">Home</Link>
-          <Link href="/dashboard">Dashboard</Link>
+          <Link href="/admin">admin</Link>
           <button onClick={handleLogout}>Logout</button>
         </div>
         {children}

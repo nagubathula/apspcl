@@ -7,11 +7,12 @@ const PeopleList = () => {
   const [people, setPeople] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL;
 
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/people");
+        const response = await axios.get(`${apiUrl}/api/people`);
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");
@@ -20,6 +21,7 @@ const PeopleList = () => {
         setLoading(false);
       }
     };
+
 
     fetchPeople();
   }, []);
@@ -45,7 +47,7 @@ const PeopleList = () => {
               <td className="p-2 border-b">{person.designation}</td>
               <td className="p-2 border-b">
                 <a
-                  href={`http://localhost:3000/${person.filepath}`}
+                  href={`/${person.filepath}`}
                   className="text-blue-500 hover:underline"
                   target="_blank"
                   rel="noopener noreferrer"
