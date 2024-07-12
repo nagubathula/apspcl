@@ -20,7 +20,7 @@ const UploadForm = () => {
 
     try {
       const res = await axios.post(
-        "http://16.171.16.149:5000/api/reports",
+        "http://16.171.16.149/api/api/reports",
         formData,
         {
           headers: {
