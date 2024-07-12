@@ -10,7 +10,9 @@ const ReportTable = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("http://16.171.16.149/api/api/reports");
+        const res = await axios.get(
+          "https://apspcl.codesignagency.in/api/api/reports"
+        );
         setReports(res.data);
       } catch (err) {
         console.error(err);

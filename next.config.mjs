@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://16.171.16.149/api/api/:path*", // Proxy to Backend
+        destination: "https://apspcl.codesignagency.in/api/api/:path*", // Proxy to Backend
       },
     ];
   },

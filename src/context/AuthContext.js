@@ -11,7 +11,10 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      await axios.post("http://16.171.16.149/api/api/auth/register", userData);
+      await axios.post(
+        "https://apspcl.codesignagency.in/api/api/auth/register",
+        userData
+      );
       router.push("/login");
     } catch (err) {
       console.error("Registration error:", err);
@@ -21,7 +24,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (userData) => {
     try {
       const res = await axios.post(
-        "http://16.171.16.149/api/api/auth/login",
+        "https://apspcl.codesignagency.in/api/api/auth/login",
         userData
       );
       const { token } = res.data;
