@@ -11,7 +11,9 @@ const PeopleList = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://16.170.215.0:5000/api/people");
+        const response = await axios.get(
+          "http://16.171.16.149:5000/api/people"
+        );
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");
