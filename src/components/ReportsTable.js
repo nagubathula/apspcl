@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import UploadForm from "@/components/UploadForm"; // Import the UploadForm component
@@ -13,7 +13,9 @@ const ReportTable = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("http://localhost:8000/api/reports");
+        const res = await axios.get(
+          "https://apspcl.codesignagency.in/api/api/reports"
+        );
         setReports(res.data);
         setFilteredReports(res.data); // Initialize filtered reports with all fetched reports
       } catch (err) {
@@ -46,13 +48,19 @@ const ReportTable = () => {
 
   // Function to handle deleting a report
   const handleDelete = async (id) => {
-    const confirmed = window.confirm("Are you sure you want to delete this report?");
+    const confirmed = window.confirm(
+      "Are you sure you want to delete this report?"
+    );
     if (confirmed) {
       try {
-        await axios.delete(`http://localhost:8000/api/reports/${id}`);
+        await axios.delete(
+          `https://apspcl.codesignagency.in/api/api/reports/${id}`
+        );
         // Remove the deleted report from the state
         setReports(reports.filter((report) => report._id !== id));
-        setFilteredReports(filteredReports.filter((report) => report._id !== id));
+        setFilteredReports(
+          filteredReports.filter((report) => report._id !== id)
+        );
       } catch (err) {
         console.error("Error deleting report:", err);
       }
@@ -143,7 +151,10 @@ const ReportTable = () => {
       {/* Modal for UploadForm */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
-          <div className="absolute inset-0 bg-gray-800 opacity-50" onClick={closeModal}></div>
+          <div
+            className="absolute inset-0 bg-gray-800 opacity-50"
+            onClick={closeModal}
+          ></div>
           <div className="bg-white p-6 rounded shadow-lg relative">
             <button
               onClick={closeModal}

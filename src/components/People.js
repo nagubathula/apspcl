@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-
 const People = () => {
   const [people, setPeople] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +11,9 @@ const People = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/people");
+        const response = await axios.get(
+          "https://apspcl.codesignagency.in/api/api/people"
+        );
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");

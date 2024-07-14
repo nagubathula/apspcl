@@ -33,7 +33,7 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
     try {
       if (isEditMode) {
         await axios.put(
-          `http://localhost:8000/api/reports/${report._id}`,
+          `https://apspcl.codesignagency.in/api/api/reports/${report._id}`,
           formData,
           {
             headers: {
@@ -48,11 +48,15 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
           filepath: report.filepath,
         });
       } else {
-        await axios.post("http://localhost:8000/api/reports", formData, {
-          headers: {
-            "Content-Type": "multipart/form-data", // Ensure the request is sent as multipart
-          },
-        });
+        await axios.post(
+          "https://apspcl.codesignagency.in/api/api/reports",
+          formData,
+          {
+            headers: {
+              "Content-Type": "multipart/form-data", // Ensure the request is sent as multipart
+            },
+          }
+        );
         onClose(); // You may want to refresh the list or handle success
       }
     } catch (error) {

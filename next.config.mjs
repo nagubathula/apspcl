@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "http://localhost:8000/api/:path*", // Proxy to Backend
+        destination: "https://apspcl.codesignagency.in/api/api/:path*", // Proxy to Backend
       },
     ];
   },
@@ -14,14 +14,14 @@ const nextConfig = {
     return [
       {
         // Apply these headers to all routes
-        source: '/(.*)', // Apply headers to all paths
+        source: "/(.*)", // Apply headers to all paths
         headers: [
           {
-            key: 'X-Frame-Options',
-            value: 'DENY', // Prevent framing
+            key: "X-Frame-Options",
+            value: "DENY", // Prevent framing
           },
           {
-            key: 'Content-Security-Policy',
+            key: "Content-Security-Policy",
             value: "frame-ancestors 'none';", // Prevent framing
           },
         ],
@@ -32,12 +32,12 @@ const nextConfig = {
   // Optional: Configure Next.js to handle environment variables correctly
   env: {
     // Add any environment variables you need here
-    API_URL: 'http://localhost:8000/api', // Example variable for the backend URL
+    API_URL: "https://apspcl.codesignagency.in/api/api", // Example variable for the backend URL
   },
 
   // Optional: Configure build and performance settings
   images: {
-    domains: ['localhost'], // Allows images from localhost for development
+    domains: ["localhost"], // Allows images from localhost for development
   },
 
   // Optional: Enable React Strict Mode

@@ -16,7 +16,9 @@ const PeopleList = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/api/people");
+        const response = await axios.get(
+          "https://apspcl.codesignagency.in/api/api/people"
+        );
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");
@@ -48,7 +50,7 @@ const PeopleList = () => {
       }
 
       await axios.put(
-        `http://localhost:8000/api/people/${editingPerson._id}`,
+        `https://apspcl.codesignagency.in/api/api/people/${editingPerson._id}`,
         formData
       );
       setEditingPerson(null);
@@ -60,7 +62,9 @@ const PeopleList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/api/people/${id}`);
+      await axios.delete(
+        `https://apspcl.codesignagency.in/api/api/people/${id}`
+      );
       setPeople(people.filter((person) => person._id !== id));
       setEditingPerson(null);
     } catch (err) {
@@ -99,51 +103,53 @@ const PeopleList = () => {
         </div>
       </div>
       <table className="w-full table-auto border-collapse bg-white shadow-md rounded-lg overflow-hidden">
-  <thead>
-    <tr className="bg-gray-200 text-gray-600 border-b border-gray-300">
-      <th className="p-4 text-left">Person</th>
-      <th className="p-4 text-left">Designation</th>
-      <th className="p-4 text-left">File</th>
-      <th className="p-4 text-left">Actions</th>
-    </tr>
-  </thead>
-  <tbody>
-    {filteredPeople.map((person) => (
-      <tr key={person._id} className="border-b border-gray-300 hover:bg-gray-50">
-        <td className="p-4 flex items-center gap-4">
-          <Image
-            className="rounded-full h-12 w-12 object-cover"
-            alt={person.name}
-            src={`/${person.filepath}`}
-            height={48}
-            width={48}
-          />
-          <span className="text-gray-800 font-medium">{person.name}</span>
-        </td>
-        <td className="p-4 text-gray-700">{person.designation}</td>
-        <td className="p-4">
-          <Link
-            href={`/${person.filepath}`}
-            className="text-blue-500 hover:underline"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            {person.filepath}
-          </Link>
-        </td>
-        <td className="p-4 text-center">
-          <button
-            onClick={() => handleEdit(person)}
-            className="bg-yellow-500 text-white py-1 px-3 rounded-lg hover:bg-yellow-600 transition-colors duration-300"
-          >
-            Edit
-          </button>
-        </td>
-      </tr>
-    ))}
-  </tbody>
-</table>
-
+        <thead>
+          <tr className="bg-gray-200 text-gray-600 border-b border-gray-300">
+            <th className="p-4 text-left">Person</th>
+            <th className="p-4 text-left">Designation</th>
+            <th className="p-4 text-left">File</th>
+            <th className="p-4 text-left">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {filteredPeople.map((person) => (
+            <tr
+              key={person._id}
+              className="border-b border-gray-300 hover:bg-gray-50"
+            >
+              <td className="p-4 flex items-center gap-4">
+                <Image
+                  className="rounded-full h-12 w-12 object-cover"
+                  alt={person.name}
+                  src={`/${person.filepath}`}
+                  height={48}
+                  width={48}
+                />
+                <span className="text-gray-800 font-medium">{person.name}</span>
+              </td>
+              <td className="p-4 text-gray-700">{person.designation}</td>
+              <td className="p-4">
+                <Link
+                  href={`/${person.filepath}`}
+                  className="text-blue-500 hover:underline"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {person.filepath}
+                </Link>
+              </td>
+              <td className="p-4 text-center">
+                <button
+                  onClick={() => handleEdit(person)}
+                  className="bg-yellow-500 text-white py-1 px-3 rounded-lg hover:bg-yellow-600 transition-colors duration-300"
+                >
+                  Edit
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
 
       {editingPerson && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
