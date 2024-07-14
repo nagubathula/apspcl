@@ -2,6 +2,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import PeopleForm from "./PeopleForm";
+import Link from "next/link";
+import Image from "next/image";
 
 const PeopleList = () => {
   const [people, setPeople] = useState([]);
@@ -45,7 +47,10 @@ const PeopleList = () => {
         formData.append("file", editingPerson.file);
       }
 
-      await axios.put(`http://localhost:8000/api/people/${editingPerson._id}`, formData);
+      await axios.put(
+        `http://localhost:8000/api/people/${editingPerson._id}`,
+        formData
+      );
       setEditingPerson(null);
       window.location.reload(); // Refresh the page after saving
     } catch (err) {
@@ -56,7 +61,7 @@ const PeopleList = () => {
   const handleDelete = async (id) => {
     try {
       await axios.delete(`http://localhost:8000/api/people/${id}`);
-      setPeople(people.filter(person => person._id !== id));
+      setPeople(people.filter((person) => person._id !== id));
       setEditingPerson(null);
     } catch (err) {
       console.error("Failed to delete person", err);
@@ -72,70 +77,88 @@ const PeopleList = () => {
   if (error) return <p>{error}</p>;
 
   return (
-    <div className="max-w-4xl mx-auto p-4 bg-gray-100 rounded shadow-md">
-      <h2 className="text-2xl font-bold text-gray-800 mb-4">People List</h2>
-      <div className="mb-4 flex items-center space-x-4">
-        <button
-          onClick={() => setShowForm(true)}
-          className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
-        >
-          Add New Person
-        </button>
-        <input
-          type="text"
-          placeholder="Search by name..."
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-          className="p-2 border border-gray-300 rounded w-full"
-        />
+    <div className="max-w-4xl mx-auto   ">
+      {/* <h2 className="text-2xl font-bold text-gray-800 mb-4">People List</h2> */}
+      <div className="mb-4 flex flex-row justiify-between w-full items-center gap-4">
+        <div>
+          <input
+            type="text"
+            placeholder="Search by name..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+            className="p-2 border border-gray-300 rounded w-full"
+          />
+        </div>
+        <div>
+          <button
+            onClick={() => setShowForm(true)}
+            className="bg-blue-500 text-white p-2 rounded hover:bg-blue-700"
+          >
+            Add New Person
+          </button>
+        </div>
       </div>
-      <table className="w-full table-auto border-collapse bg-white">
-        <thead>
-          <tr className="bg-gray-200 text-gray-600">
-            <th className="p-2 border-b">Name</th>
-            <th className="p-2 border-b">Designation</th>
-            <th className="p-2 border-b">File</th>
-            <th className="p-2 border-b">Actions</th>
-          </tr>
-        </thead>
-        <tbody>
-          {filteredPeople.map((person) => (
-            <tr key={person._id}>
-              <td className="p-2 border-b">{person.name}</td>
-              <td className="p-2 border-b">{person.designation}</td>
-              <td className="p-2 border-b">
-                <a
-                  href={`/${person.filepath}`}
-                  className="text-blue-500 hover:underline"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  {person.filepath}
-                </a>
-              </td>
-              <td className="p-2 border-b">
-                <button
-                  onClick={() => handleEdit(person)}
-                  className="text-yellow-500 hover:text-yellow-700"
-                >
-                  Edit
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
+      <table className="w-full table-auto border-collapse bg-white shadow-md rounded-lg overflow-hidden">
+  <thead>
+    <tr className="bg-gray-200 text-gray-600 border-b border-gray-300">
+      <th className="p-4 text-left">Person</th>
+      <th className="p-4 text-left">Designation</th>
+      <th className="p-4 text-left">File</th>
+      <th className="p-4 text-left">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    {filteredPeople.map((person) => (
+      <tr key={person._id} className="border-b border-gray-300 hover:bg-gray-50">
+        <td className="p-4 flex items-center gap-4">
+          <Image
+            className="rounded-full h-12 w-12 object-cover"
+            alt={person.name}
+            src={`/${person.filepath}`}
+            height={48}
+            width={48}
+          />
+          <span className="text-gray-800 font-medium">{person.name}</span>
+        </td>
+        <td className="p-4 text-gray-700">{person.designation}</td>
+        <td className="p-4">
+          <Link
+            href={`/${person.filepath}`}
+            className="text-blue-500 hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {person.filepath}
+          </Link>
+        </td>
+        <td className="p-4 text-center">
+          <button
+            onClick={() => handleEdit(person)}
+            className="bg-yellow-500 text-white py-1 px-3 rounded-lg hover:bg-yellow-600 transition-colors duration-300"
+          >
+            Edit
+          </button>
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
 
       {editingPerson && (
         <div className="fixed inset-0 flex items-center justify-center bg-gray-700 bg-opacity-50">
           <div className="bg-white p-4 rounded shadow-md">
-            <h2 className="text-2xl font-bold text-gray-800 mb-4">Edit Person</h2>
+            <h2 className="text-2xl font-bold text-gray-800 mb-4">
+              Edit Person
+            </h2>
             <div className="mb-4">
               <label className="block text-gray-700 mb-2">Name</label>
               <input
                 type="text"
                 value={editingPerson.name}
-                onChange={(e) => setEditingPerson({ ...editingPerson, name: e.target.value })}
+                onChange={(e) =>
+                  setEditingPerson({ ...editingPerson, name: e.target.value })
+                }
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
@@ -144,7 +167,12 @@ const PeopleList = () => {
               <input
                 type="text"
                 value={editingPerson.designation}
-                onChange={(e) => setEditingPerson({ ...editingPerson, designation: e.target.value })}
+                onChange={(e) =>
+                  setEditingPerson({
+                    ...editingPerson,
+                    designation: e.target.value,
+                  })
+                }
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>
@@ -152,7 +180,12 @@ const PeopleList = () => {
               <label className="block text-gray-700 mb-2">File</label>
               <input
                 type="file"
-                onChange={(e) => setEditingPerson({ ...editingPerson, file: e.target.files[0] })}
+                onChange={(e) =>
+                  setEditingPerson({
+                    ...editingPerson,
+                    file: e.target.files[0],
+                  })
+                }
                 className="w-full p-2 border border-gray-300 rounded"
               />
             </div>

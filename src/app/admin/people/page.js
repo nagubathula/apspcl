@@ -5,8 +5,8 @@ import PeopleList from '@/components/PeopleList';
 
 const PeoplePage = () => {
   return (
-    <div>
-      <h1 className="text-4xl font-bold text-center my-8">People Management</h1>
+    <div className='max-w-4xl mx-auto'>
+      <h1 className="text-4xl font-bold text-left my-8">People Management</h1>
       {/* <PeopleForm /> */}
       <PeopleList />
     </div>

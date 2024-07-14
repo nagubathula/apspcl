@@ -1,4 +1,4 @@
-"use client";
+"use client"
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import UploadForm from "@/components/UploadForm"; // Import the UploadForm component
@@ -8,6 +8,7 @@ const ReportTable = () => {
   const [filteredReports, setFilteredReports] = useState([]);
   const [searchQuery, setSearchQuery] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+  const [reportToEdit, setReportToEdit] = useState(null); // State to manage report being edited
 
   useEffect(() => {
     const fetchReports = async () => {
@@ -32,13 +33,30 @@ const ReportTable = () => {
   }, [searchQuery, reports]);
 
   // Function to handle opening the modal
-  const openModal = () => {
+  const openModal = (report = null) => {
+    setReportToEdit(report);
     setIsModalOpen(true);
   };
 
   // Function to handle closing the modal
   const closeModal = () => {
     setIsModalOpen(false);
+    setReportToEdit(null);
+  };
+
+  // Function to handle deleting a report
+  const handleDelete = async (id) => {
+    const confirmed = window.confirm("Are you sure you want to delete this report?");
+    if (confirmed) {
+      try {
+        await axios.delete(`http://localhost:8000/api/reports/${id}`);
+        // Remove the deleted report from the state
+        setReports(reports.filter((report) => report._id !== id));
+        setFilteredReports(filteredReports.filter((report) => report._id !== id));
+      } catch (err) {
+        console.error("Error deleting report:", err);
+      }
+    }
   };
 
   return (
@@ -57,7 +75,7 @@ const ReportTable = () => {
       </div>
 
       <button
-        onClick={openModal}
+        onClick={() => openModal(null)} // Open modal for creating new report
         className="mb-4 px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600"
       >
         Add New
@@ -74,6 +92,7 @@ const ReportTable = () => {
             <th className="p-3 border-b border-gray-300 text-left">
               File Path
             </th>
+            <th className="p-3 border-b border-gray-300 text-left">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -95,11 +114,25 @@ const ReportTable = () => {
                     Download
                   </a>
                 </td>
+                <td className="p-3 border-b border-gray-300">
+                  <button
+                    onClick={() => openModal(report)} // Open modal for editing
+                    className="px-4 py-2 bg-yellow-500 text-white rounded shadow hover:bg-yellow-600"
+                  >
+                    Edit
+                  </button>
+                  <button
+                    onClick={() => handleDelete(report._id)} // Handle delete
+                    className="ml-2 px-4 py-2 bg-red-500 text-white rounded shadow hover:bg-red-600"
+                  >
+                    Delete
+                  </button>
+                </td>
               </tr>
             ))
           ) : (
             <tr>
-              <td colSpan="4" className="p-3 text-center text-gray-500">
+              <td colSpan="5" className="p-3 text-center text-gray-500">
                 No reports found
               </td>
             </tr>
@@ -118,8 +151,26 @@ const ReportTable = () => {
             >
               &times;
             </button>
-            <h3 className="text-xl font-semibold mb-4">Upload Report</h3>
-            <UploadForm />
+            <h3 className="text-xl font-semibold mb-4">
+              {reportToEdit ? "Edit Report" : "Upload Report"}
+            </h3>
+            <UploadForm
+              reportToEdit={reportToEdit}
+              onClose={closeModal}
+              onUpdate={(updatedReport) => {
+                setReports((prevReports) =>
+                  prevReports.map((report) =>
+                    report._id === updatedReport._id ? updatedReport : report
+                  )
+                );
+                setFilteredReports((prevReports) =>
+                  prevReports.map((report) =>
+                    report._id === updatedReport._id ? updatedReport : report
+                  )
+                );
+                closeModal();
+              }}
+            />
           </div>
         </div>
       )}
