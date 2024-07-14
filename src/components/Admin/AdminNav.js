@@ -4,7 +4,7 @@ import Link from 'next/link';
 
 export default function AdminNav() {
   const cards = [
-    { title: 'Reports', href: '/admin/uploadreport' },
+    { title: 'Reports', href: '/admin/report' },
     { title: 'Upload People Photos', href: '/page2' },
     { title: 'Solar Parks', href: '/admin/Solarparks' },
     { title: 'Tenders', href: '/admin/tenders' },

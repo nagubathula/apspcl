@@ -3,22 +3,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Image from "next/image";
 
-// // Example JSON data array
-// const peopleData = [
-//   {
-
-//     name: "Shri Nara Chandra Babu Naidu",
-//     designation: "Hon'ble Chief Minister Government of Andhra Pradesh",
-//     imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
-//   },
-//   {
-
-//     name: "Shri Konidela Pawan Kalyan",
-//     designation: "Hon'ble Deputy Chief Minister Government of Andhra Pradesh",
-//     imageUrl: "https://nredcap.in/assets/images/AP_CM.png",
-//   },
-
-// ];
 
 const People = () => {
   const [people, setPeople] = useState([]);
@@ -28,9 +12,7 @@ const People = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get(
-          "https://apspcl.codesignagency.in/api/api/people"
-        );
+        const response = await axios.get("http://localhost:8000/api/people");
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");
@@ -54,8 +36,8 @@ const People = () => {
           className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3"
         >
           <Image
-            className="w-full"
-            src={`http://localhost:3000/${person.filepath}`}
+            className="w-full h-64 object-cover "
+            src={`/${person.filepath}`}
             alt="Person"
             width={500}
             height={500}

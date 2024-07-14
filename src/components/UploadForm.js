@@ -20,7 +20,7 @@ const UploadForm = () => {
 
     try {
       const res = await axios.post(
-        "https://apspcl.codesignagency.in/api/api/reports",
+        "http://localhost:8000/api/reports",
         formData,
         {
           headers: {

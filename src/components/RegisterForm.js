@@ -19,7 +19,7 @@ export default function RegisterForm() {
     try {
       const { token } = await register(name, email, password);
       setToken(token);
-      router.push("/dashboard");
+      router.push("/admin");
     } catch (err) {
       setError("Registration failed");
     }

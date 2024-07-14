@@ -18,7 +18,7 @@ export default function LoginForm() {
     try {
       const { token } = await login(email, password);
       setToken(token);
-      router.push("/dashboard");
+      router.push("/admin");
     } catch (err) {
       setError("Invalid credentials");
     }
