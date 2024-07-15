@@ -28,7 +28,7 @@ export default function Home() {
             alt=""
               width={1200}
               height={800}
-              src="/templates/apspclcms/images/inner-pages/organization.jpg"
+              src="/organization.jpg"
             />
           </div>
         </div>
