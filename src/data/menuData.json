@@ -7,14 +7,13 @@
       },
       {
         "label": "About us",
-        "link": "/uploads/solarpolicies/",
+        "link": "/introduction",
         "subItems": [
           { "label": "Introduction", "link": "/introduction" },
           { "label": "Objectives", "link": "/objectives" },
           { "label": "Board Of Directors", "link": "/directors" },
-          { "label": "Vision & Mission", "link": "/missions" },
-          { "label": "Equity Holding", "link": "/equityholding" },
-          { "label": "Organization Structure", "link": "/organizationStructure" }
+          { "label": "Equity Holding", "link": "/equity" },
+          { "label": "Organization Structure", "link": "/organizationstructure" }
         ]
       },
       {
