@@ -52,15 +52,15 @@ export default function RootLayout({ children }) {
               </li>
               <li className="mb-2">
                 <a
-                  href="#services"
+                  href="/admin/tenders"
                   className="block p-2 hover:bg-neutral-700 rounded"
                 >
-                  Services
+                  Tenders
                 </a>
               </li>
               <li className="mb-2">
                 <a
-                  href="#contact"
+                  href="/admin/contact"
                   className="block p-2 hover:bg-neutral-700 rounded"
                 >
                   Contact
