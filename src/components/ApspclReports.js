@@ -1,10 +1,28 @@
 "use client";
-import React, { useState } from "react";
-import reportsData from "@/data/ApspclReports.json";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const ApspclReports = () => {
+  const [reportsData, setReportsData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
   const [filterType, setFilterType] = useState("");
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchReports = async () => {
+      try {
+        const response = await axios.get("http://localhost:5000/api/reports");
+        setReportsData(response.data);
+        setLoading(false);
+      } catch (err) {
+        setError("Failed to fetch reports");
+        setLoading(false);
+      }
+    };
+
+    fetchReports();
+  }, []);
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -15,12 +33,19 @@ const ApspclReports = () => {
   };
 
   const filteredReports = reportsData.filter((report) => {
-    const matchesSearch = report["REPORT NAME"]
-      .toLowerCase()
-      .includes(searchTerm.toLowerCase());
-    const matchesFilter = filterType === "" || report.Type === filterType;
+    const reportName = report.reportname || ""; // Using 'reportname' from your model
+    const matchesSearch = reportName.toLowerCase().includes(searchTerm.toLowerCase());
+    const matchesFilter = filterType === "" || report.type === filterType; // Using 'type' from your model
     return matchesSearch && matchesFilter;
   });
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>{error}</div>;
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -81,14 +106,14 @@ const ApspclReports = () => {
           <tbody className="text-gray-700">
             {filteredReports.map((report, index) => (
               <tr key={index} className="bg-gray-50 border-b">
-                <td className="py-3 px-4">{report.Type}</td>
-                <td className="py-3 px-4">{report["REPORT NAME"]}</td>
+                <td className="py-3 px-4">{report.type}</td> {/* Accessing 'type' */}
+                <td className="py-3 px-4">{report.reportname}</td> {/* Accessing 'reportname' */}
                 <td className="py-3 px-4">
                   <a
-                    href={report.Link}
+                    href={report.filepath}
                     className="text-blue-500 hover:underline"
                   >
-                    {report.Title}
+                    {report.title}
                   </a>
                 </td>
               </tr>

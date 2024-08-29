@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://apspcl.codesignagency.in/api/api/:path*", // Proxy to Backend
+        destination: "http://localhost:5000/api/:path*", // Ensure the backend is on this port
       },
     ];
   },
@@ -24,6 +24,7 @@ const nextConfig = {
             key: "Content-Security-Policy",
             value: "frame-ancestors 'none';", // Prevent framing
           },
+          // Consider adding other security headers like XSS protection, etc.
         ],
       },
     ];
@@ -31,8 +32,7 @@ const nextConfig = {
 
   // Optional: Configure Next.js to handle environment variables correctly
   env: {
-    // Add any environment variables you need here
-    API_URL: "https://apspcl.codesignagency.in/api/api", // Example variable for the backend URL
+    API_URL: "http://localhost:5000/api", // Update if your backend runs on a different port
   },
 
   // Optional: Configure build and performance settings
