@@ -33,11 +33,13 @@ const ApspclReports = () => {
   };
 
   const filteredReports = reportsData.filter((report) => {
-    const reportName = report.reportname || ""; // Using 'reportname' from your model
+    const reportName = report.reportname || "";
     const matchesSearch = reportName.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterType === "" || report.type === filterType; // Using 'type' from your model
+    const matchesFilter = filterType === "" || report.type.toLowerCase() === filterType.toLowerCase();
+    console.log("Report type:", report.type, "Filter type:", filterType, "Matches filter:", matchesFilter);
     return matchesSearch && matchesFilter;
   });
+  
 
   if (loading) {
     return <div>Loading...</div>;
