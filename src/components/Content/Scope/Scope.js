@@ -50,7 +50,7 @@ const Scope = () => {
 
   return (
     <div className="flex min-h-[36rem]">
-      <div className="w-1/4 bg-gray-50 text-gray-800 p-4">
+      {/* <div className="w-1/4 bg-gray-50 text-gray-800 p-4">
         <div>
           <ul>
             {menuData.menuItems.map((item, index) => (
@@ -91,7 +91,7 @@ const Scope = () => {
             ))}
           </ul>
         </div>
-      </div>
+      </div> */}
       <div className="w-3/4 bg-white p-4 ">
         <h1 className="text-2xl font-bold mb-4">Scope</h1>
         <div className="h-full overflow-y-auto">

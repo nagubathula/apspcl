@@ -4,13 +4,43 @@ import { useState } from "react";
 // Office data in JSON format
 const officeData = [
   {
+    id: "corporateoffice",
+    name: "CORPORATE OFFICE",
+    addresses: [
+      {
+        title: "APSPCL Corporate Office :",
+        body: "Andhra Pradesh Solar Power Corporation Pvt. Ltd 3rd Floor, Vidyut Soudha, Gunadala, Vijayawada – 520 004, Krishna District, Andhra Pradesh, India,",
+      },
+      {
+        title: "APSPCL Correspondence Address:",
+        body: "Flat No. 401 & 402, Garuda Enclave, Tadepalle - 522 501, Guntur District, Andhra Pradesh, India",
+      },
+      {
+        title: "Contact Details",
+        body: "08645-274040, 08645-274041 & 08645-274042",
+      },
+    ],
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.069460453856!2d80.67160225002333!3d16.522590588546368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5290438840d%3A0xde358569a13d6c72!2sAPTRANSCO%20%26%20APGENCO%20%2C%20Vidyut%20Soudha%2C%20Vijayawada!5e0!3m2!1sen!2sin!4v1574745994620!5m2!1sen!2sin",
+    contacts: [
+      // {
+      //   name: "Sri M. Siva Sankara Naidu",
+      //   designation: "Dy. Executive Engineer/Civil",
+      //   phone: "9966781745",
+      //   email: "mss.naidu@ap.gov.in",
+      // },
+      // {
+      //   name: "Sri G. Krishna Kishore",
+      //   designation: "Dy. Executive Engineer/Electrical",
+      //   phone: "9493121628",
+      //   email: "krishna.gk@ap.gov.in",
+      // },
+    ],
+  },
+  {
     id: "ananthapuramu",
     name: "Ananthapuramu Ultra Mega Solar Park (1500 MW) Site Office",
     addresses: [
-      {
-        title: "Main Office",
-        body: "Andhra Pradesh Solar Power Corporation Pvt Ltd,\nAPSPDCL Office Complex,\nAnanthapuramu Road, Near R&B Bungalow,\nKadiri - 515 591, Ananthapuramu Dist.\nAndhra Pradesh",
-      },
       {
         title: "Main Office",
         body: "Andhra Pradesh Solar Power Corporation Pvt Ltd,\nAPSPDCL Office Complex,\nAnanthapuramu Road, Near R&B Bungalow,\nKadiri - 515 591, Ananthapuramu Dist.\nAndhra Pradesh",
@@ -53,6 +83,115 @@ const officeData = [
       },
     ],
   },
+  {
+    id: "kadapa",
+    name: "KADAPA ULTRA MEGA SOLAR PARK (1000 MW)",
+    addresses: [
+      {
+        title: "Kadapa Ultra Mega  Solar Park (1000 MW ) Site Office :",
+        body: "H.No. 1/74, Brindavan colony, Opposite to RTC Busstand, Jamallamadugu -516434, Kadapa Dist, Andhra Pradesh.",
+      },
+    ],
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d681.7770331830418!2d78.38624055573918!3d14.841339865472078!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb471578780326d%3A0x27278b537927db46!2sJammalamadugu+Bus+Station!5e0!3m2!1sen!2sin!4v1487309945670",
+    contacts: [
+      {
+        name: "	Sri K. Vijay Kumar Reddy",
+        designation: "Dy. Executive Engineer/Electrical",
+        phone: "9493195432",
+        email: "vijay.kovvuru@ap.gov.in",
+      },
+      {
+        name: "  Sri R. Anjaneyulu",
+        designation: "Dy. Executive Engineer",
+        phone: " 9493175617",
+        email: "anjaneyulu.rangana@ap.gov.in",
+      },
+    ],
+  },
+  {
+    id: "ananthapuramu2",
+    name: "Ananthapuramu -II Ultra Mega Solar Park (1500 MW) Site Office.",
+    addresses: [
+      {
+        title: "Ananthapuramu -II Ultra Mega Solar Park (1500 MW) Site Office.",
+        body: "Andhra Pradesh Solar Power Corporation Pvt Ltd, Talari cheruvu village, Tadipatri Mandal, Ananthapuramu Dist, Andhra Pradesh.",
+      },
+    ],
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d586269.6928318567!2d77.63675960587891!3d15.130825419754117!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb4373fc210ef45%3A0xbd9249b3b3e736e3!2sTadipatri+Rd%2C+Andhra+Pradesh%2C+India!5e0!3m2!1sen!2sin!4v1487163402614",
+    contacts: [
+      {
+        name: "	 Smt. C. Surekha",
+        designation: " Dy. Executive Engineer/Electrical",
+        phone: "9493120179",
+        email: "surekha.challa@ap.gov.in",
+      },
+      {
+        name: "  Sri R. Anjaneyulu",
+        designation: "Dy. Executive Engineer/Civil",
+        phone: " 9493175617",
+        email: "anjaneyulu.rangana@ap.gov.in",
+      },
+    ],
+  },
+  {
+    id: "administrativeoffice",
+    name: "Administrative Office",
+    addresses: [
+      {
+        title: "Ananthapuramu -II Ultra Mega Solar Park (1500 MW) Site Office.",
+        body: "Andhra Pradesh Solar Power Corporation Pvt. Ltd Flat No. 401 & 402, 4th Floor, Garuda Enclave, Beside TG Plaza, Tadepalli (Village), Guntur District-522501, Andhra Pradesh, India",
+      },
+    ],
+    mapUrl:
+      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.861214072822!2d80.6187827!3d16.4825637!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35f06e8757da59%3A0x255896a02ab06f44!2sTG%20Plaza!5e0!3m2!1sen!2sin!4v1574745755417!5m2!1sen!2sin",
+    contacts: [
+      {
+        name: "Sri K. Vijayanand, IAS",
+        designation: "Special Chief Secretary to Government, Energy Department & Chairman/APSPCL",
+        phone: "08645-274040/41",
+        email: "md.apspcl@ap.gov.in",
+      },
+      {
+        name: "Dr. M. Kamalakar Babu, M.Sc., B.L., Ph.d.",
+        designation: "Managing Director & Chief Executive Officer",
+        phone: "08645-274040/41",
+        email: "md.apspcl@ap.gov.in & md.apspcl@gmail.com",
+      },
+      {
+        name: "Sri V.V. Hanumantha Rao",
+        designation: "Chief Financial Officer",
+        phone: "08645-274041-Extn:200",
+        email: "apspcl2014@gmail.com",
+      },
+      {
+        name: "Sri B.N. Prabhakar",
+        designation: "Executive Engineer/Tech",
+        phone: "08645-274041-Extn:300",
+        email: "eetech.apspcl@gmail.com",
+      },
+      {
+        name: "Sri J.V. Satyanarayana",
+        designation: "Executive Engineer/Civil",
+        phone: "08645-274041-Extn:400",
+        email: "eecivil.apspcl@gmail.com",
+      },
+      {
+        name: "Smt. C. Surekha",
+        designation: "Dy. Executive Engineer/Electrical",
+        phone: "9493120179",
+        email: "surekha.challa@ap.gov.in",
+      },
+      {
+        name: "Sri R. Anjaneyulu",
+        designation: "Dy. Executive Engineer/Civil",
+        phone: "9493175617",
+        email: "anjaneyulu.rangana@ap.gov.in",
+      },
+    ],
+  },
+  
   // Add more office data as needed
 ];
 

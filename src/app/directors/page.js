@@ -11,24 +11,6 @@ import People from "@/components/People";
 import About from "@/components/About";
 import BoardofDirectors from "@/components/BoardofDirectors/BoardofDirectors";
 // import footerLinksData from '@/data/footerLinks.json';
-// Dummy data for cards
-const cards = [
-  {
-    title: "Kurnool",
-    imageUrl: "/uploads/solarparks/solarparks_90379579.jpg",
-    link: "/content/kurnoolultramegasolarparks",
-  },
-  {
-    title: "Card 2",
-    imageUrl: "/logo.png",
-    link: "https://example.com/2",
-  },
-  {
-    title: "Card 3",
-    imageUrl: "/logo.png",
-    link: "https://example.com/3",
-  },
-];
 
 export default function Home() {
   return (
