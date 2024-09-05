@@ -23,18 +23,7 @@ const officeData = [
     mapUrl:
       "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3825.069460453856!2d80.67160225002333!3d16.522590588546368!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a35e5290438840d%3A0xde358569a13d6c72!2sAPTRANSCO%20%26%20APGENCO%20%2C%20Vidyut%20Soudha%2C%20Vijayawada!5e0!3m2!1sen!2sin!4v1574745994620!5m2!1sen!2sin",
     contacts: [
-      // {
-      //   name: "Sri M. Siva Sankara Naidu",
-      //   designation: "Dy. Executive Engineer/Civil",
-      //   phone: "9966781745",
-      //   email: "mss.naidu@ap.gov.in",
-      // },
-      // {
-      //   name: "Sri G. Krishna Kishore",
-      //   designation: "Dy. Executive Engineer/Electrical",
-      //   phone: "9493121628",
-      //   email: "krishna.gk@ap.gov.in",
-      // },
+  
     ],
   },
   {
