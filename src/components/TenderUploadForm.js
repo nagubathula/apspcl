@@ -19,7 +19,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
       setTenderNotification(tender.tenderNotification || "");
       setDescription(tender.description || "");
       setCorrigendum(tender.corrigendum || "N/A");
-      setClosingDate(new Date(tender.closingDate).toISOString().split('T')[0] || "");
+      setClosingDate(
+        new Date(tender.closingDate).toISOString().split("T")[0] || ""
+      );
       setLink(tender.link || "");
     }
   }, [isEditMode, tender]);
@@ -77,7 +79,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
       <div>
-        <label className="block text-sm font-medium text-gray-700">Sl. No</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Sl. No
+        </label>
         <input
           type="number"
           value={slNo}
@@ -87,7 +91,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Office Of</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Office Of
+        </label>
         <input
           type="text"
           value={officeOf}
@@ -97,7 +103,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Tender Notification</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Tender Notification
+        </label>
         <input
           type="text"
           value={tenderNotification}
@@ -107,7 +115,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Description</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Description
+        </label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -116,7 +126,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
         ></textarea>
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Corrigendum</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Corrigendum
+        </label>
         <input
           type="text"
           value={corrigendum}
@@ -125,7 +137,9 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
         />
       </div>
       <div>
-        <label className="block text-sm font-medium text-gray-700">Closing Date</label>
+        <label className="block text-sm font-medium text-gray-700">
+          Closing Date
+        </label>
         <input
           type="date"
           value={closingDate}

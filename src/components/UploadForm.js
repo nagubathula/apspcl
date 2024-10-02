@@ -8,17 +8,28 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
   const [title, setTitle] = useState("");
   const [file, setFile] = useState(null);
 
+  // Populate form fields when editing
   useEffect(() => {
     if (isEditMode && report) {
-      setType(report.type);
-      setReportname(report.reportname);
-      setTitle(report.title);
+      setType(report.type || "");
+      setReportname(report.reportname || "");
+      setTitle(report.title || "");
+    } else {
+      resetForm(); // Reset form when switching from edit to new report
     }
   }, [isEditMode, report]);
+
+  const resetForm = () => {
+    setType("");
+    setReportname("");
+    setTitle("");
+    setFile(null);
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // Type validation
     if (type !== "report" && type !== "return") {
       alert("Type must be either 'report' or 'return'.");
       return;
@@ -28,16 +39,17 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
     formData.append("type", type);
     formData.append("reportname", reportname);
     formData.append("title", title);
-    if (file) formData.append("file", file);
+    if (file) formData.append("file", file); // Append file only if it's present
 
     try {
       if (isEditMode) {
+        // PUT request for editing an existing report
         await axios.put(
           `http://localhost:5000/api/reports/${report._id}`,
           formData,
           {
             headers: {
-              "Content-Type": "multipart/form-data", // Ensure the request is sent as multipart
+              "Content-Type": "multipart/form-data",
             },
           }
         );
@@ -45,16 +57,18 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
           type,
           reportname,
           title,
-          filepath: report.filepath,
+          filepath: report.filepath, // Keep the original file path if no new file
         });
       } else {
+        // POST request for creating a new report
         await axios.post("http://localhost:5000/api/reports", formData, {
           headers: {
-            "Content-Type": "multipart/form-data", // Ensure the request is sent as multipart
+            "Content-Type": "multipart/form-data",
           },
         });
-        onClose(); // You may want to refresh the list or handle success
       }
+      resetForm(); // Clear form after submission
+      onClose(); // Close the form
     } catch (error) {
       console.error(
         "Error submitting report:",
@@ -106,15 +120,24 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
           type="file"
           onChange={(e) => setFile(e.target.files[0])}
           className="mt-1 p-2 border border-gray-300 rounded w-full"
-          accept="image/*" // Adjust the file type if needed
+          accept="image/*" // Adjust if needed (e.g., PDFs, docs)
         />
       </div>
-      <button
-        type="submit"
-        className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600"
-      >
-        {isEditMode ? "Update" : "Upload"}
-      </button>
+      <div className="flex justify-end space-x-4">
+        <button
+          type="button"
+          onClick={onClose}
+          className="px-4 py-2 bg-gray-500 text-white rounded shadow hover:bg-gray-600"
+        >
+          Cancel
+        </button>
+        <button
+          type="submit"
+          className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600"
+        >
+          {isEditMode ? "Update" : "Upload"}
+        </button>
+      </div>
     </form>
   );
 };

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import UploadForm from "@/components/UploadForm"; // Import the UploadForm component
+import EditForm from "@/components/EditReportForm"; // Import the new EditForm component
 
 const ReportTable = () => {
   const [reports, setReports] = useState([]);
@@ -110,7 +111,7 @@ const ReportTable = () => {
                 <td className="p-3 border-b border-gray-300">{report.title}</td>
                 <td className="p-3 border-b border-gray-300">
                   <a
-                    href={`http://localhost:5000/${report.filepath}`}
+                    href={`http://localhost:5000/api/${report.filepath}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"
@@ -144,7 +145,7 @@ const ReportTable = () => {
         </tbody>
       </table>
 
-      {/* Modal for UploadForm */}
+      {/* Modal for UploadForm or EditForm */}
       {isModalOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div
@@ -161,23 +162,34 @@ const ReportTable = () => {
             <h3 className="text-xl font-semibold mb-4">
               {reportToEdit ? "Edit Report" : "Upload Report"}
             </h3>
-            <UploadForm
-              reportToEdit={reportToEdit}
-              onClose={closeModal}
-              onUpdate={(updatedReport) => {
-                setReports((prevReports) =>
-                  prevReports.map((report) =>
-                    report._id === updatedReport._id ? updatedReport : report
-                  )
-                );
-                setFilteredReports((prevReports) =>
-                  prevReports.map((report) =>
-                    report._id === updatedReport._id ? updatedReport : report
-                  )
-                );
-                closeModal();
-              }}
-            />
+            {reportToEdit ? (
+              <EditForm
+                report={reportToEdit}
+                onClose={closeModal}
+                onUpdate={(updatedReport) => {
+                  setReports((prevReports) =>
+                    prevReports.map((report) =>
+                      report._id === updatedReport._id ? updatedReport : report
+                    )
+                  );
+                  setFilteredReports((prevReports) =>
+                    prevReports.map((report) =>
+                      report._id === updatedReport._id ? updatedReport : report
+                    )
+                  );
+                  closeModal();
+                }}
+              />
+            ) : (
+              <UploadForm
+                onClose={closeModal}
+                onUpdate={(newReport) => {
+                  setReports([...reports, newReport]);
+                  setFilteredReports([...filteredReports, newReport]);
+                  closeModal();
+                }}
+              />
+            )}
           </div>
         </div>
       )}

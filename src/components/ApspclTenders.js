@@ -34,8 +34,12 @@ const ApspclTenders = () => {
 
   const filteredReports = reportsData.filter((report) => {
     const reportName = report.reportname || "";
-    const matchesSearch = reportName.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterType === "" || report.type.toLowerCase() === filterType.toLowerCase();
+    const matchesSearch = reportName
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      filterType === "" ||
+      report.type.toLowerCase() === filterType.toLowerCase();
     return matchesSearch && matchesFilter;
   });
 
@@ -115,7 +119,9 @@ const ApspclTenders = () => {
                 <td className="py-3 px-4">{report.tenderNotification}</td>
                 <td className="py-3 px-4">{report.description}</td>
                 <td className="py-3 px-4">{report.corrigendum}</td>
-                <td className="py-3 px-4">{new Date(report.closingDate).toLocaleDateString()}</td>
+                <td className="py-3 px-4">
+                  {new Date(report.closingDate).toLocaleDateString()}
+                </td>
                 <td className="py-3 px-4">
                   <a
                     href={report.link}

@@ -12,6 +12,7 @@ import About from "@/components/About";
 import Objectives from "@/components/Objectives/Objectives";
 import ApspclTable from "@/components/ApspclTable";
 import ApspclTenders from "@/components/ApspclTenders";
+import NewTenderFetch from "@/components/NewTenderFetch";
 
 export default function Home() {
   return (
@@ -24,7 +25,8 @@ export default function Home() {
         <div className="p-8">
           <h1 className="text-4xl font-bold mb-4">TENDERS</h1>
           <div>
-            <ApspclTable />
+            {/* <ApspclTable /> */}
+            <NewTenderFetch />
             {/* <ApspclTenders /> */}
           </div>
         </div>

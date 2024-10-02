@@ -1,6 +1,8 @@
 "use client"
 import TendersTable from "@/components/TendersTable";
 import UploadForm from "@/components/UploadForm";
+import NewTenderAdminFetch from "@/components/NewTenderAdminFetch";
+import Modal from "@/components/NewTenderForm"
 
 export default function Home() {
   return (
@@ -8,7 +10,8 @@ export default function Home() {
      
       <div className="">
         {/* <UploadForm /> */}
-        <TendersTable />
+        <Modal />
+        <NewTenderAdminFetch />
       </div>
       
     </div>

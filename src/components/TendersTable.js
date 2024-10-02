@@ -27,7 +27,9 @@ const TendersTable = () => {
   useEffect(() => {
     // Filter tenders based on the search query
     const results = tenders.filter((tender) =>
-      tender.tenderNotification.toLowerCase().includes(searchQuery.toLowerCase())
+      tender.tenderNotification
+        .toLowerCase()
+        .includes(searchQuery.toLowerCase())
     );
     setFilteredTenders(results);
   }, [searchQuery, tenders]);
@@ -54,7 +56,9 @@ const TendersTable = () => {
         await axios.delete(`http://localhost:5000/api/tenders/${id}`);
         // Remove the deleted tender from the state
         setTenders(tenders.filter((tender) => tender._id !== id));
-        setFilteredTenders(filteredTenders.filter((tender) => tender._id !== id));
+        setFilteredTenders(
+          filteredTenders.filter((tender) => tender._id !== id)
+        );
       } catch (err) {
         console.error("Error deleting tender:", err);
       }
@@ -87,11 +91,21 @@ const TendersTable = () => {
         <thead>
           <tr>
             <th className="p-3 border-b border-gray-300 text-left">Sl. No</th>
-            <th className="p-3 border-b border-gray-300 text-left">Office Of</th>
-            <th className="p-3 border-b border-gray-300 text-left">Tender Notification</th>
-            <th className="p-3 border-b border-gray-300 text-left">Description</th>
-            <th className="p-3 border-b border-gray-300 text-left">Corrigendum</th>
-            <th className="p-3 border-b border-gray-300 text-left">Closing Date</th>
+            <th className="p-3 border-b border-gray-300 text-left">
+              Office Of
+            </th>
+            <th className="p-3 border-b border-gray-300 text-left">
+              Tender Notification
+            </th>
+            <th className="p-3 border-b border-gray-300 text-left">
+              Description
+            </th>
+            <th className="p-3 border-b border-gray-300 text-left">
+              Corrigendum
+            </th>
+            <th className="p-3 border-b border-gray-300 text-left">
+              Closing Date
+            </th>
             <th className="p-3 border-b border-gray-300 text-left">Link</th>
             <th className="p-3 border-b border-gray-300 text-left">Actions</th>
           </tr>
@@ -101,10 +115,18 @@ const TendersTable = () => {
             filteredTenders.map((tender) => (
               <tr key={tender._id} className="hover:bg-gray-50">
                 <td className="p-3 border-b border-gray-300">{tender.slNo}</td>
-                <td className="p-3 border-b border-gray-300">{tender.officeOf}</td>
-                <td className="p-3 border-b border-gray-300">{tender.tenderNotification}</td>
-                <td className="p-3 border-b border-gray-300">{tender.description}</td>
-                <td className="p-3 border-b border-gray-300">{tender.corrigendum}</td>
+                <td className="p-3 border-b border-gray-300">
+                  {tender.officeOf}
+                </td>
+                <td className="p-3 border-b border-gray-300">
+                  {tender.tenderNotification}
+                </td>
+                <td className="p-3 border-b border-gray-300">
+                  {tender.description}
+                </td>
+                <td className="p-3 border-b border-gray-300">
+                  {tender.corrigendum}
+                </td>
                 <td className="p-3 border-b border-gray-300">
                   {new Date(tender.closingDate).toLocaleDateString()}
                 </td>

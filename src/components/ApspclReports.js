@@ -34,12 +34,22 @@ const ApspclReports = () => {
 
   const filteredReports = reportsData.filter((report) => {
     const reportName = report.reportname || "";
-    const matchesSearch = reportName.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filterType === "" || report.type.toLowerCase() === filterType.toLowerCase();
-    console.log("Report type:", report.type, "Filter type:", filterType, "Matches filter:", matchesFilter);
+    const matchesSearch = reportName
+      .toLowerCase()
+      .includes(searchTerm.toLowerCase());
+    const matchesFilter =
+      filterType === "" ||
+      report.type.toLowerCase() === filterType.toLowerCase();
+    console.log(
+      "Report type:",
+      report.type,
+      "Filter type:",
+      filterType,
+      "Matches filter:",
+      matchesFilter
+    );
     return matchesSearch && matchesFilter;
   });
-  
 
   if (loading) {
     return <div>Loading...</div>;
@@ -108,8 +118,10 @@ const ApspclReports = () => {
           <tbody className="text-gray-700">
             {filteredReports.map((report, index) => (
               <tr key={index} className="bg-gray-50 border-b">
-                <td className="py-3 px-4">{report.type}</td> {/* Accessing 'type' */}
-                <td className="py-3 px-4">{report.reportname}</td> {/* Accessing 'reportname' */}
+                <td className="py-3 px-4">{report.type}</td>{" "}
+                {/* Accessing 'type' */}
+                <td className="py-3 px-4">{report.reportname}</td>{" "}
+                {/* Accessing 'reportname' */}
                 <td className="py-3 px-4">
                   <a
                     href={report.filepath}

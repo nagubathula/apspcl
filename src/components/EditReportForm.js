@@ -1,85 +1,118 @@
 import React, { useState, useEffect } from "react";
+import axios from "axios";
 
-const EditReportForm = ({ report, onSave, onCancel }) => {
-  const [type, setType] = useState("");
-  const [reportname, setReportname] = useState("");
-  const [title, setTitle] = useState("");
-  const [filepath, setFilepath] = useState("");
+const EditForm = ({ report, onClose, onUpdate }) => {
+  // Initialize state with the report data
+  const [formData, setFormData] = useState({
+    type: report?.type || "",
+    reportname: report?.reportname || "",
+    title: report?.title || "",
+    filepath: report?.filepath || "",
+  });
 
-  // Update state when the report prop changes
   useEffect(() => {
+    // Whenever the report prop changes, update the formData state
     if (report) {
-      setType(report.type || "");
-      setReportname(report.reportname || "");
-      setTitle(report.title || "");
-      setFilepath(report.filepath || "");
+      setFormData({
+        type: report.type || "",
+        reportname: report.reportname || "",
+        title: report.title || "",
+        filepath: report.filepath || "",
+      });
     }
   }, [report]);
 
-  const handleSubmit = (e) => {
+  // Function to handle form input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  // Function to handle form submission
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Basic validation
-    if (!type || !reportname || !title) {
-      alert("All fields are required.");
-      return;
-    }
+    try {
+      // Send the updated report data to the backend
+      const res = await axios.put(
+        `http://localhost:5000/api/reports/${report._id}`,
+        formData
+      );
 
-    onSave({ ...report, type, reportname, title, filepath });
+      // Call onUpdate to update the report in the parent component (ReportTable)
+      onUpdate(res.data);
+    } catch (err) {
+      console.error("Error updating report:", err);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit} className="space-y-4">
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">Type</label>
+      <div>
+        <label className="block text-gray-700">Type:</label>
+        <select
+          name="type"
+          value={formData.type}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded"
+          required
+        >
+          <option value="">Select type</option>
+          <option value="report">Report</option>
+          <option value="return">Return</option>
+        </select>
+      </div>
+
+      <div>
+        <label className="block text-gray-700">Report Name:</label>
         <input
           type="text"
-          value={type}
-          onChange={(e) => setType(e.target.value)}
-          className="p-2 border border-gray-300 rounded w-full"
+          name="reportname"
+          value={formData.reportname}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded"
           required
         />
       </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">Report Name</label>
+
+      <div>
+        <label className="block text-gray-700">Title:</label>
         <input
           type="text"
-          value={reportname}
-          onChange={(e) => setReportname(e.target.value)}
-          className="p-2 border border-gray-300 rounded w-full"
+          name="title"
+          value={formData.title}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded"
           required
         />
       </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">Title</label>
+
+      <div>
+        <label className="block text-gray-700">File Path:</label>
         <input
           type="text"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="p-2 border border-gray-300 rounded w-full"
+          name="filepath"
+          value={formData.filepath}
+          onChange={handleChange}
+          className="w-full p-2 border border-gray-300 rounded"
           required
         />
       </div>
-      <div className="mb-4">
-        <label className="block text-gray-700 mb-2">File Path</label>
-        <input
-          type="text"
-          value={filepath}
-          onChange={(e) => setFilepath(e.target.value)}
-          className="p-2 border border-gray-300 rounded w-full"
-        />
-      </div>
-      <div className="flex justify-end">
+
+      <div className="flex justify-end space-x-2">
         <button
           type="button"
-          onClick={onCancel}
-          className="mr-2 px-4 py-2 bg-gray-500 text-white rounded shadow hover:bg-gray-600"
+          onClick={onClose}
+          className="px-4 py-2 bg-gray-500 text-white rounded hover:bg-gray-600"
         >
           Cancel
         </button>
         <button
           type="submit"
-          className="px-4 py-2 bg-blue-500 text-white rounded shadow hover:bg-blue-600"
+          className="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
         >
           Save
         </button>
@@ -88,4 +121,4 @@ const EditReportForm = ({ report, onSave, onCancel }) => {
   );
 };
 
-export default EditReportForm;
+export default EditForm;
