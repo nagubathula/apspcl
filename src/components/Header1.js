@@ -31,7 +31,6 @@ const headerData = {
       height: 82,
       width: 89,
     },
-    
   ],
 };
 

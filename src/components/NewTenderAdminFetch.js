@@ -67,9 +67,12 @@ const NewTenderAdminFetch = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this tender?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/tenders/${id}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `http://localhost:5000/api/tenders/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to delete tender");
@@ -126,7 +129,7 @@ const NewTenderAdminFetch = () => {
       </div>
 
       {/* Tender Table */}
-      <table className="min-w-full border-collapse border border-gray-300">
+      <table className="min-w-full border-collapse border text-xs border-gray-300">
         <thead className="bg-gray-100">
           <tr>
             <th className="border border-gray-300 p-4 text-left text-sm font-semibold text-gray-700">
@@ -159,15 +162,21 @@ const NewTenderAdminFetch = () => {
           {filteredTenders.map((tender, index) => (
             <tr
               key={tender._id}
-              className={`bg-white ${index % 2 === 0 ? "bg-gray-50" : ""} transition duration-200 hover:bg-gray-200`}
+              className={`bg-white ${
+                index % 2 === 0 ? "bg-gray-50" : ""
+              } transition duration-200 hover:bg-gray-200`}
             >
               <td className="border border-gray-300 p-4">{tender.category}</td>
               <td className="border border-gray-300 p-4">{tender.officeOf}</td>
               <td className="border border-gray-300 p-4">
                 {tender.tenderNotification}
               </td>
-              <td className="border border-gray-300 p-4">{tender.description}</td>
-              <td className="border border-gray-300 p-4">{tender.corrigendum || "N/A"}</td>
+              <td className="border border-gray-300 p-4">
+                {tender.description}
+              </td>
+              <td className="border border-gray-300 p-4">
+                {tender.corrigendum || "N/A"}
+              </td>
               <td className="border border-gray-300 p-4">
                 {new Date(tender.closingDate).toLocaleDateString()}
               </td>
@@ -181,8 +190,12 @@ const NewTenderAdminFetch = () => {
                   View
                 </a>
               </td>
+
               <td className="border border-gray-300 p-4 flex space-x-2">
                 <div>
+                  <td className="border border-gray-300 p-4">
+                    {tender.viewStatus}
+                  </td>
                   <button
                     onClick={() => {
                       setSelectedTender(tender); // Set the selected tender for editing

@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 
 const categories = [
   "Corporate Office",
@@ -20,9 +20,9 @@ const NewTenderFetch = () => {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/tenders');
+        const response = await fetch("http://localhost:5000/api/tenders");
         if (!response.ok) {
-          throw new Error('Failed to fetch data');
+          throw new Error("Failed to fetch data");
         }
         const data = await response.json();
         setTenders(data);
@@ -43,13 +43,15 @@ const NewTenderFetch = () => {
       let filtered = tenders;
 
       if (searchQuery) {
-        filtered = filtered.filter(tender =>
+        filtered = filtered.filter((tender) =>
           tender.description.toLowerCase().includes(searchQuery.toLowerCase())
         );
       }
 
       if (selectedCategory) {
-        filtered = filtered.filter(tender => tender.category === selectedCategory);
+        filtered = filtered.filter(
+          (tender) => tender.category === selectedCategory
+        );
       }
 
       setFilteredTenders(filtered);
@@ -64,8 +66,6 @@ const NewTenderFetch = () => {
 
   return (
     <div className="tender-table-container">
-
-
       {/* Search and Filter Controls */}
       <div className="flex items-center space-x-4 mb-4">
         <input
@@ -107,16 +107,23 @@ const NewTenderFetch = () => {
           {filteredTenders.map((tender, index) => (
             <tr
               key={index}
-              className={index % 2 === 0 ? 'bg-gray-100' : 'bg-white'} // Add striped row classes
+              className={index % 2 === 0 ? "bg-gray-100" : "bg-white"} // Add striped row classes
             >
               {/* <td className="border-b p-4">{tender.category}</td> */}
               <td className="border-b p-4">{tender.officeOf}</td>
               <td className="border-b p-4">{tender.tenderNotification}</td>
               <td className="border-b p-4">{tender.description}</td>
-              <td className="border-b p-4">{tender.corrigendum || 'N/A'}</td>
-              <td className="border-b p-4">{new Date(tender.closingDate).toLocaleDateString()}</td>
+              <td className="border-b p-4">{tender.corrigendum || "N/A"}</td>
               <td className="border-b p-4">
-                <a href={tender.link} target="_blank" rel="noopener noreferrer" className="text-blue-500">
+                {new Date(tender.closingDate).toLocaleDateString()}
+              </td>
+              <td className="border-b p-4">
+                <a
+                  href={tender.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-blue-500"
+                >
                   View
                 </a>
               </td>

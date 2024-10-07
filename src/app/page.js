@@ -9,6 +9,8 @@ import Carousel from "@/components/Carousel";
 import FooterLinks from "@/components/FooterLinks";
 import People from "@/components/People";
 import About from "@/components/About";
+import NewsList from "@/components/Newslist";
+import TendersList from "@/components/LatestTendersList";
 // import footerLinksData from '@/data/footerLinks.json';
 
 
@@ -25,6 +27,9 @@ export default function Home() {
           {/* <QuickLink2 /> */}
           {/* <AboutApspcl /> */}
           <div className="bg-gray-100 mt-4 lg:mt-8">
+            
+            <NewsList />
+            <TendersList />
             <About />
           </div>
           {/* <div className="container mx-auto p-4">
