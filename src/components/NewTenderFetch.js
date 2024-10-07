@@ -25,8 +25,14 @@ const NewTenderFetch = () => {
           throw new Error("Failed to fetch data");
         }
         const data = await response.json();
-        setTenders(data);
-        setFilteredTenders(data); // Initially set filtered tenders to all tenders
+
+        // Filter tenders to only include those with viewStatus = 'public'
+        const publicTenders = data.filter(
+          (tender) => tender.viewStatus === "public"
+        );
+
+        setTenders(publicTenders);
+        setFilteredTenders(publicTenders); // Initially set filtered tenders to public tenders
       } catch (error) {
         setError(error.message);
       } finally {
@@ -53,6 +59,9 @@ const NewTenderFetch = () => {
           (tender) => tender.category === selectedCategory
         );
       }
+
+      // Sort the filtered tenders by closingDate in descending order
+      filtered.sort((a, b) => new Date(b.closingDate) - new Date(a.closingDate));
 
       setFilteredTenders(filtered);
     };
@@ -94,12 +103,11 @@ const NewTenderFetch = () => {
       <table className="text-xs min-w-full border-collapse border-b">
         <thead>
           <tr>
-            {/* <th className="border-b p-4">Category</th> */}
             <th className="border-b p-4">Office Of</th>
             <th className="border-b p-4">Tender Notification</th>
             <th className="border-b p-4">Description</th>
             <th className="border-b p-4">Corrigendum</th>
-            <th className="border-b p-4">Closing Date</th>
+            <th className="border-b p-4">Closing Date (MM/DD/YYY)</th>
             <th className="border-b p-4">Link</th>
           </tr>
         </thead>
@@ -109,7 +117,6 @@ const NewTenderFetch = () => {
               key={index}
               className={index % 2 === 0 ? "bg-gray-100" : "bg-white"} // Add striped row classes
             >
-              {/* <td className="border-b p-4">{tender.category}</td> */}
               <td className="border-b p-4">{tender.officeOf}</td>
               <td className="border-b p-4">{tender.tenderNotification}</td>
               <td className="border-b p-4">{tender.description}</td>

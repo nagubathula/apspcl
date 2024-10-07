@@ -1,64 +1,65 @@
-"use client"
+"use client";
 import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 const TendersList = () => {
   const [tenders, setTenders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState(null);
+  const [error, setError] = useState('');
 
-  // Fetch tenders from the backend
   useEffect(() => {
+    // Fetch the tenders from the API
     const fetchTenders = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/latest/tenders');
-        if (!res.ok) {
-          throw new Error('Failed to fetch tenders');
-        }
-        const data = await res.json();
-        setTenders(data);
+        const response = await axios.get('http://localhost:5000/api/tenders');
+        const filteredTenders = response.data
+          .filter(
+            (tender) => 
+              tender.viewStatus === 'public' && 
+              tender.latestStatus === 'active' && 
+              tender.createdAt // Filter out tenders without createdAt
+          )
+          .sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt)); // Sort by createdAt in descending order
+
+        setTenders(filteredTenders);
+        setLoading(false);
       } catch (err) {
-        setError(err.message);
+        setError('Error fetching tenders');
+        setLoading(false);
       }
-      setLoading(false);
     };
 
     fetchTenders();
   }, []);
 
   if (loading) {
-    return <div>Loading tenders...</div>;
+    return <p className="text-center text-gray-500">Loading tenders...</p>;
   }
 
   if (error) {
-    return <div>Error: {error}</div>;
+    return <p className="text-center text-red-500">{error}</p>;
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h2 className="text-2xl font-semibold mb-4">Latest Tenders</h2>
+    <div className="max-w-4xl mx-auto mt-8">
+      <h1 className="text-2xl font-bold mb-4 text-gray-800">Public and Active Tenders</h1>
       {tenders.length === 0 ? (
-        <p>No tenders available.</p>
+        <p className="text-center text-gray-500">No tenders available.</p>
       ) : (
         <ul className="space-y-4">
-          {tenders.map((tendersItem) => (
-            <li key={tendersItem._id} className="p-4 border rounded-md shadow-md">
-              {/* Use createdDate field */}
-              <p className="text-sm text-gray-500">
-                {new Date(tendersItem.createdDate).toLocaleDateString()} {/* Display the created date */}
-              </p>
-              <h3 className="text-xl font-bold">
-                &lt;&lt;{tendersItem.title}&gt;&gt; {/* Title in << >> */}
-              </h3>
-              <p className="text-gray-700 mt-2">
-                {tendersItem.description} {/* Description */}
-              </p>
+          {tenders.map((tender) => (
+            <li
+              key={tender._id}
+              className="p-4 bg-white shadow-md rounded-md border border-gray-200"
+            >
+              <h2 className="text-xl font-semibold text-gray-700">{tender.tenderNotification}</h2>
               <a
-                href={tendersItem.link}
+                href={tender.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline mt-2 inline-block"
               >
-                &lt;read more&gt; {/* "Read more" link in < > */}
+                View Tender
               </a>
             </li>
           ))}
@@ -69,4 +70,3 @@ const TendersList = () => {
 };
 
 export default TendersList;
-
