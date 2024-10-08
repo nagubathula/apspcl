@@ -20,7 +20,7 @@ const NewTenderFetch = () => {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/tenders");
+        const response = await fetch("https://apspcl.ap.gov.in/api/tenders");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -61,7 +61,9 @@ const NewTenderFetch = () => {
       }
 
       // Sort the filtered tenders by closingDate in descending order
-      filtered.sort((a, b) => new Date(b.closingDate) - new Date(a.closingDate));
+      filtered.sort(
+        (a, b) => new Date(b.closingDate) - new Date(a.closingDate)
+      );
 
       setFilteredTenders(filtered);
     };

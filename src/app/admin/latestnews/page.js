@@ -1,12 +1,12 @@
-"use client"
-import { useState } from 'react';
+"use client";
+import { useState } from "react";
 
 const NewsUploadForm = () => {
-  const [title, setTitle] = useState('');
-  const [description, setDescription] = useState('');
-  const [link, setLink] = useState('');
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [link, setLink] = useState("");
   const [loading, setLoading] = useState(false);
-  const [message, setMessage] = useState('');
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -15,28 +15,28 @@ const NewsUploadForm = () => {
     const newsData = {
       title,
       description,
-      link
+      link,
     };
 
     try {
-      const res = await fetch('http://localhost:5000/api/news', {
-        method: 'POST',
+      const res = await fetch("https://apspcl.ap.gov.in/api/news", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(newsData),
       });
 
       if (res.ok) {
-        setMessage('News uploaded successfully!');
-        setTitle('');
-        setDescription('');
-        setLink('');
+        setMessage("News uploaded successfully!");
+        setTitle("");
+        setDescription("");
+        setLink("");
       } else {
-        setMessage('Failed to upload news.');
+        setMessage("Failed to upload news.");
       }
     } catch (error) {
-      setMessage('An error occurred while uploading news.');
+      setMessage("An error occurred while uploading news.");
     }
 
     setLoading(false);
@@ -48,7 +48,10 @@ const NewsUploadForm = () => {
       {message && <p className="text-red-500">{message}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label htmlFor="title" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="title"
+            className="block text-sm font-medium text-gray-700"
+          >
             Title
           </label>
           <input
@@ -61,7 +64,10 @@ const NewsUploadForm = () => {
           />
         </div>
         <div>
-          <label htmlFor="description" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="description"
+            className="block text-sm font-medium text-gray-700"
+          >
             Description
           </label>
           <textarea
@@ -74,7 +80,10 @@ const NewsUploadForm = () => {
           ></textarea>
         </div>
         <div>
-          <label htmlFor="link" className="block text-sm font-medium text-gray-700">
+          <label
+            htmlFor="link"
+            className="block text-sm font-medium text-gray-700"
+          >
             Link
           </label>
           <input
@@ -91,7 +100,7 @@ const NewsUploadForm = () => {
           className="w-full bg-blue-600 text-white py-2 px-4 rounded-md hover:bg-blue-700 disabled:opacity-50"
           disabled={loading}
         >
-          {loading ? 'Uploading...' : 'Upload News'}
+          {loading ? "Uploading..." : "Upload News"}
         </button>
       </form>
     </div>

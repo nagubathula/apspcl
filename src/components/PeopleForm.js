@@ -29,11 +29,11 @@ const PeopleForm = ({ person, onClose, onSubmitSuccess, onDelete }) => {
     try {
       if (person) {
         await axios.put(
-          `http://localhost:5000/api/people/${person._id}`,
+          `https://apspcl.ap.gov.in/api/people/${person._id}`,
           formData
         );
       } else {
-        await axios.post("http://localhost:5000/api/people", formData, {
+        await axios.post("https://apspcl.ap.gov.in/api/people", formData, {
           headers: { "Content-Type": "multipart/form-data" },
         });
       }
@@ -47,7 +47,7 @@ const PeopleForm = ({ person, onClose, onSubmitSuccess, onDelete }) => {
   const handleDelete = async () => {
     if (person) {
       try {
-        await axios.delete(`http://localhost:5000/api/people/${person._id}`);
+        await axios.delete(`https://apspcl.ap.gov.in/api/people/${person._id}`);
         if (onDelete) onDelete(); // Call the delete callback
         onClose(); // Close the form after successful deletion
       } catch (err) {

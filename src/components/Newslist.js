@@ -1,5 +1,5 @@
-"use client"
-import { useEffect, useState } from 'react';
+"use client";
+import { useEffect, useState } from "react";
 
 const NewsList = () => {
   const [news, setNews] = useState([]);
@@ -10,9 +10,9 @@ const NewsList = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch('http://localhost:5000/api/news');
+        const res = await fetch("https://apspcl.ap.gov.in/api/news");
         if (!res.ok) {
-          throw new Error('Failed to fetch news');
+          throw new Error("Failed to fetch news");
         }
         const data = await res.json();
         setNews(data);
@@ -44,7 +44,8 @@ const NewsList = () => {
             <li key={newsItem._id} className="p-4 border rounded-md shadow-md">
               {/* Use createdDate field */}
               <p className="text-sm text-gray-500">
-                {new Date(newsItem.createdDate).toLocaleDateString()} {/* Display the created date */}
+                {new Date(newsItem.createdDate).toLocaleDateString()}{" "}
+                {/* Display the created date */}
               </p>
               <h3 className="text-xl font-bold">
                 &lt;&lt;{newsItem.title}&gt;&gt; {/* Title in << >> */}
@@ -69,4 +70,3 @@ const NewsList = () => {
 };
 
 export default NewsList;
-

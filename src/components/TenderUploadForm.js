@@ -42,7 +42,7 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
     try {
       if (isEditMode) {
         await axios.put(
-          `http://localhost:5000/api/tenders/${tender._id}`,
+          `https://apspcl.ap.gov.in/api/tenders/${tender._id}`,
           formData,
           {
             headers: {
@@ -61,7 +61,7 @@ const UploadForm = ({ tender, isEditMode, onEdit, onClose }) => {
           filepath: tender.filepath,
         });
       } else {
-        await axios.post("http://localhost:5000/api/tenders", formData, {
+        await axios.post("https://apspcl.ap.gov.in/api/tenders", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },

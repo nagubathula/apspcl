@@ -80,7 +80,7 @@ const TenderForm = () => {
     formDataToSend.append("file", file);
 
     try {
-      const response = await fetch("http://localhost:5000/api/tenders", {
+      const response = await fetch("https://apspcl.ap.gov.in/api/tenders", {
         method: "POST",
         body: formDataToSend,
       });
