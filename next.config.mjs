@@ -4,7 +4,7 @@ const nextConfig = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://apspcl.ap.gov.in/api/:path*", // Ensure the backend is on this port
+        destination: "http://localhost:5000/api/:path*", // Ensure the backend is on this port
       },
     ];
   },
@@ -32,7 +32,7 @@ const nextConfig = {
 
   // Optional: Configure Next.js to handle environment variables correctly
   env: {
-    API_URL: "https://apspcl.ap.gov.in/api", // Update if your backend runs on a different port
+    API_URL: "http://localhost:5000/api", // Update if your backend runs on a different port
   },
 
   // Optional: Configure build and performance settings

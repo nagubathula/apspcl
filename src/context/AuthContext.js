@@ -11,7 +11,7 @@ export const AuthProvider = ({ children }) => {
 
   const register = async (userData) => {
     try {
-      await axios.post("https://apspcl.ap.gov.in/api/auth/register", userData);
+      await axios.post("http://localhost:5000/api/auth/register", userData);
       router.push("/login");
     } catch (err) {
       console.error("Registration error:", err);
@@ -21,7 +21,7 @@ export const AuthProvider = ({ children }) => {
   const login = async (userData) => {
     try {
       const res = await axios.post(
-        "https://apspcl.ap.gov.in/api/auth/login",
+        "http://localhost:5000/api/auth/login",
         userData
       );
       const { token } = res.data;

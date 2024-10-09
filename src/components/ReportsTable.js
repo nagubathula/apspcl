@@ -14,7 +14,7 @@ const ReportTable = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const res = await axios.get("https://apspcl.ap.gov.in/api/reports");
+        const res = await axios.get("http://localhost:5000/api/reports");
         setReports(res.data);
         setFilteredReports(res.data); // Initialize filtered reports with all fetched reports
       } catch (err) {
@@ -52,7 +52,7 @@ const ReportTable = () => {
     );
     if (confirmed) {
       try {
-        await axios.delete(`https://apspcl.ap.gov.in/api/reports/${id}`);
+        await axios.delete(`http://localhost:5000/api/reports/${id}`);
         // Remove the deleted report from the state
         setReports(reports.filter((report) => report._id !== id));
         setFilteredReports(
@@ -111,7 +111,7 @@ const ReportTable = () => {
                 <td className="p-3 border-b border-gray-300">{report.title}</td>
                 <td className="p-3 border-b border-gray-300">
                   <a
-                    href={`https://apspcl.ap.gov.in/api/${report.filepath}`}
+                    href={`http://localhost:5000/api/${report.filepath}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-blue-500 hover:underline"

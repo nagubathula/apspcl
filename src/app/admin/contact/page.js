@@ -47,7 +47,7 @@ export default function CreateOffice() {
     e.preventDefault();
 
     try {
-      const response = await fetch("https://apspcl.ap.gov.in/api/offices", {
+      const response = await fetch("http://localhost:5000/api/offices", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -25,21 +25,21 @@ export default function Home() {
           "Implementation And Support Agreement For 250 MW Grid Connected",
         link_text: "ISA For Kadapa- 250 MW.Docx",
         link_url:
-          "https://apspcl.ap.gov.in/api/uploads/informationtobidder/information_35179632.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_35179632.docx",
       },
       {
         sl_no: 2,
         description: "Land Lease Agreement For 250 MW Grid Connected",
         link_text: "LLA For Kadapa- 250 MW.Docx",
         link_url:
-          "https://apspcl.ap.gov.in/api/uploads/informationtobidder/information_31047188.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_31047188.docx",
       },
       {
         sl_no: 3,
         description: "Geological Report",
         link_text: "Geological Report.pdf",
         link_url:
-          "https://apspcl.ap.gov.in/api/uploads/informationtobidder/information_64805772.pdf",
+          "http://localhost:5000/api/uploads/informationtobidder/information_64805772.pdf",
       },
       {
         sl_no: 4,
@@ -47,7 +47,7 @@ export default function Home() {
           "Draft Implementation and Support Agreement for 750 MW Grid Connected Solar Photo Voltaic Power Project at Kadapa Ultra Mega Solar Park (1000 MW)",
         link_text: "Draft ISA for Kadapa 750 MW",
         link_url:
-          "https://apspcl.ap.gov.in/api/uploads/informationtobidder/information_26362255.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_26362255.docx",
       },
       {
         sl_no: 5,
@@ -55,7 +55,7 @@ export default function Home() {
           "Land Lease Agreement for 750 MW Grid Connected Solar Photo Voltaic Power Project at Kadapa Ultra Mega Solar Park (1000 MW)",
         link_text: "Draft LLA for Kadapa 750 MW",
         link_url:
-          "https://apspcl.ap.gov.in/api/uploads/informationtobidder/information_61678799.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_61678799.docx",
       },
     ],
   };

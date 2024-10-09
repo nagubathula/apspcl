@@ -45,7 +45,7 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
       if (isEditMode) {
         // PUT request for editing an existing report
         await axios.put(
-          `https://apspcl.ap.gov.in/api/reports/${report._id}`,
+          `http://localhost:5000/api/reports/${report._id}`,
           formData,
           {
             headers: {
@@ -61,7 +61,7 @@ const UploadForm = ({ report, isEditMode, onEdit, onClose }) => {
         });
       } else {
         // POST request for creating a new report
-        await axios.post("https://apspcl.ap.gov.in/api/reports", formData, {
+        await axios.post("http://localhost:5000/api/reports", formData, {
           headers: {
             "Content-Type": "multipart/form-data",
           },
