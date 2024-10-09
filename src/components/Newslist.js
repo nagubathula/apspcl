@@ -34,7 +34,7 @@ const NewsList = () => {
   }
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
+    <div className="max-w-6xl mx-auto p-4">
       <h2 className="text-2xl font-semibold mb-4">Latest News</h2>
       {news.length === 0 ? (
         <p>No news available.</p>
@@ -48,10 +48,10 @@ const NewsList = () => {
                 {/* Display the created date */}
               </p>
               <h3 className="text-xl font-bold">
-                &lt;&lt;{newsItem.title}&gt;&gt; {/* Title in << >> */}
+                {newsItem.title}
               </h3>
               <p className="text-gray-700 mt-2">
-                {newsItem.description} {/* Description */}
+                {newsItem.description}
               </p>
               <a
                 href={newsItem.link}
@@ -59,7 +59,7 @@ const NewsList = () => {
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline mt-2 inline-block"
               >
-                &lt;read more&gt; {/* "Read more" link in < > */}
+                read more 
               </a>
             </li>
           ))}

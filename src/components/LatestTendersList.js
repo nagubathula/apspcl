@@ -42,7 +42,7 @@ const TendersList = () => {
 
   return (
     <div className="max-w-6xl mx-auto mt-8 px-4">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 text-center">
+      <h1 className="text-2xl font-bold mb-6 text-gray-800 ">
         Latest Public and Active Tenders
       </h1>
       {tenders.length === 0 ? (

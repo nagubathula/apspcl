@@ -66,6 +66,22 @@ export default function RootLayout({ children }) {
                   Contact
                 </a>
               </li>
+              <li className="mb-2">
+                <a
+                  href="/admin/latestnews"
+                  className="block p-2 hover:bg-neutral-700 rounded"
+                >
+                  Latest News
+                </a>
+              </li>
+              <li className="mb-2">
+                <a
+                  href="/admin/downloads"
+                  className="block p-2 hover:bg-neutral-700 rounded"
+                >
+                Downloads
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

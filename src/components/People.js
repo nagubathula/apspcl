@@ -35,18 +35,18 @@ const People = () => {
           className="max-w-sm rounded overflow-hidden shadow-lg px-4 py-3"
         >
           <Image
-            className="w-full h-64 object-cover "
+            className="w-full  object-cover "
             src={`/${person.filepath}`}
             alt="Person"
-            width={500}
-            height={500}
+            width={360}
+            height={360}
             // alt="Picture of the author"
           />
           <div className="px-4 py-4">
-            <div className="font-bold text-base text-center mb-2">
+            <div className="font-bold text-xs text-center mb-2">
               {person.name}
             </div>
-            <p className="text-gray-700 text-sm text-center">
+            <p className="text-gray-700 text-xs text-center">
               {person.designation}
             </p>
           </div>

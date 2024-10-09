@@ -26,9 +26,11 @@ const NewTenderFetch = () => {
         }
         const data = await response.json();
 
-        // Filter tenders to only include those with viewStatus = 'public'
+        // Filter tenders to only include those with viewStatus = 'public' and a future closing date
         const publicTenders = data.filter(
-          (tender) => tender.viewStatus === "public"
+          (tender) =>
+            tender.viewStatus === "public" &&
+            new Date(tender.closingDate) > new Date() // Only include tenders with a future closing date
         );
 
         setTenders(publicTenders);
