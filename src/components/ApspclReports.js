@@ -12,7 +12,9 @@ const ApspclReports = () => {
   useEffect(() => {
     const fetchReports = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/reports");
+        const response = await axios.get(
+          "https://apspclbackend.onrender.com/api/reports"
+        );
         setReportsData(response.data);
         setLoading(false);
       } catch (err) {

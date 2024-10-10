@@ -38,7 +38,7 @@ const EditForm = ({ report, onClose, onUpdate }) => {
     try {
       // Send the updated report data to the backend
       const res = await axios.put(
-        `http://localhost:5000/api/reports/${report._id}`,
+        `https://apspclbackend.onrender.com/api/reports/${report._id}`,
         formData
       );
 

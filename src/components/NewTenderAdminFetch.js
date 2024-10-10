@@ -23,7 +23,9 @@ const NewTenderAdminFetch = () => {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/tenders");
+        const response = await fetch(
+          "https://apspclbackend.onrender.com/api/tenders"
+        );
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -68,7 +70,7 @@ const NewTenderAdminFetch = () => {
     if (window.confirm("Are you sure you want to delete this tender?")) {
       try {
         const response = await fetch(
-          `http://localhost:5000/api/tenders/${id}`,
+          `https://apspclbackend.onrender.com/api/tenders/${id}`,
           {
             method: "DELETE",
           }

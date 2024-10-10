@@ -11,7 +11,9 @@ const TendersList = () => {
     // Fetch the tenders from the API
     const fetchTenders = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/tenders");
+        const response = await axios.get(
+          "https://apspclbackend.onrender.com/api/tenders"
+        );
         const filteredTenders = response.data
           .filter(
             (tender) =>

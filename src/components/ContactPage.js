@@ -98,7 +98,9 @@ export default function ContactPage() {
   useEffect(() => {
     const fetchOfficeData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/offices"); // Adjust URL based on your API
+        const response = await fetch(
+          "https://apspclbackend.onrender.com/api/offices"
+        ); // Adjust URL based on your API
         if (!response.ok) {
           throw new Error("Failed to fetch office data");
         }

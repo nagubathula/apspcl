@@ -44,7 +44,7 @@ const EditModal = ({ isOpen, onClose, tender, onUpdate }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/tenders/${tender._id}`,
+        `https://apspclbackend.onrender.com/api/tenders/${tender._id}`,
         {
           method: "PUT",
           headers: {

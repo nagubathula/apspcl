@@ -16,7 +16,9 @@ const PeopleList = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/people");
+        const response = await axios.get(
+          "https://apspclbackend.onrender.com/api/people"
+        );
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");
@@ -48,7 +50,7 @@ const PeopleList = () => {
       }
 
       await axios.put(
-        `http://localhost:5000/api/people/${editingPerson._id}`,
+        `https://apspclbackend.onrender.com/api/people/${editingPerson._id}`,
         formData
       );
       setEditingPerson(null);
@@ -60,7 +62,7 @@ const PeopleList = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/people/${id}`);
+      await axios.delete(`https://apspclbackend.onrender.com/api/people/${id}`);
       setPeople(people.filter((person) => person._id !== id));
       setEditingPerson(null);
     } catch (err) {

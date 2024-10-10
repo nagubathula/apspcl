@@ -10,7 +10,7 @@ const NewsList = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch("http://localhost:5000/api/news");
+        const res = await fetch("https://apspclbackend.onrender.com/api/news");
         if (!res.ok) {
           throw new Error("Failed to fetch news");
         }
@@ -47,19 +47,15 @@ const NewsList = () => {
                 {new Date(newsItem.createdDate).toLocaleDateString()}{" "}
                 {/* Display the created date */}
               </p>
-              <h3 className="text-xl font-bold">
-                {newsItem.title}
-              </h3>
-              <p className="text-gray-700 mt-2">
-                {newsItem.description}
-              </p>
+              <h3 className="text-xl font-bold">{newsItem.title}</h3>
+              <p className="text-gray-700 mt-2">{newsItem.description}</p>
               <a
                 href={newsItem.link}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-blue-500 hover:underline mt-2 inline-block"
               >
-                read more 
+                read more
               </a>
             </li>
           ))}

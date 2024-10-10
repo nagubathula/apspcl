@@ -1,10 +1,14 @@
-"use client"
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+"use client";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 
 const DownloadManager = () => {
   const [downloads, setDownloads] = useState([]);
-  const [formData, setFormData] = useState({ title: '', description: '', file: null });
+  const [formData, setFormData] = useState({
+    title: "",
+    description: "",
+    file: null,
+  });
   const [editMode, setEditMode] = useState(false);
   const [editId, setEditId] = useState(null);
 
@@ -16,10 +20,12 @@ const DownloadManager = () => {
   // Fetch downloads from backend
   const fetchDownloads = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/downloads');
+      const response = await axios.get(
+        "https://apspclbackend.onrender.com/api/downloads"
+      );
       setDownloads(response.data);
     } catch (error) {
-      console.error('Failed to fetch downloads', error);
+      console.error("Failed to fetch downloads", error);
     }
   };
 
@@ -38,24 +44,30 @@ const DownloadManager = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const form = new FormData();
-    form.append('title', formData.title);
-    form.append('description', formData.description);
-    if (formData.file) form.append('file', formData.file);
+    form.append("title", formData.title);
+    form.append("description", formData.description);
+    if (formData.file) form.append("file", formData.file);
 
     try {
       if (editMode) {
         // Update download
-        await axios.put(`http://localhost:5000/api/downloads/${editId}`, form);
+        await axios.put(
+          `https://apspclbackend.onrender.com/api/downloads/${editId}`,
+          form
+        );
         setEditMode(false);
         setEditId(null);
       } else {
         // Create new download
-        await axios.post('http://localhost:5000/api/downloads', form);
+        await axios.post(
+          "https://apspclbackend.onrender.com/api/downloads",
+          form
+        );
       }
       fetchDownloads(); // Refresh list after submission
-      setFormData({ title: '', description: '', file: null });
+      setFormData({ title: "", description: "", file: null });
     } catch (error) {
-      console.error('Failed to submit download', error);
+      console.error("Failed to submit download", error);
     }
   };
 
@@ -69,10 +81,12 @@ const DownloadManager = () => {
   // Handle delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/downloads/${id}`);
+      await axios.delete(
+        `https://apspclbackend.onrender.com/api/downloads/${id}`
+      );
       fetchDownloads();
     } catch (error) {
-      console.error('Failed to delete download', error);
+      console.error("Failed to delete download", error);
     }
   };
 
@@ -82,7 +96,9 @@ const DownloadManager = () => {
 
       <form onSubmit={handleSubmit} className="space-y-4">
         <div>
-          <label className="block text-sm font-medium text-gray-700">Title</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Title
+          </label>
           <input
             type="text"
             name="title"
@@ -93,7 +109,9 @@ const DownloadManager = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">Description</label>
+          <label className="block text-sm font-medium text-gray-700">
+            Description
+          </label>
           <textarea
             name="description"
             value={formData.description}
@@ -103,7 +121,9 @@ const DownloadManager = () => {
           />
         </div>
         <div>
-          <label className="block text-sm font-medium text-gray-700">File</label>
+          <label className="block text-sm font-medium text-gray-700">
+            File
+          </label>
           <input
             type="file"
             onChange={handleFileChange}
@@ -115,7 +135,7 @@ const DownloadManager = () => {
             type="submit"
             className="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
           >
-            {editMode ? 'Update Download' : 'Create Download'}
+            {editMode ? "Update Download" : "Create Download"}
           </button>
         </div>
       </form>
@@ -124,7 +144,10 @@ const DownloadManager = () => {
         <h2 className="text-xl font-semibold mb-4">Downloads List</h2>
         <ul className="space-y-4">
           {downloads.map((download) => (
-            <li key={download._id} className="p-4 bg-white rounded-lg shadow-md flex justify-between items-center">
+            <li
+              key={download._id}
+              className="p-4 bg-white rounded-lg shadow-md flex justify-between items-center"
+            >
               <div>
                 <h3 className="text-lg font-semibold">{download.title}</h3>
                 <p className="text-gray-600">{download.description}</p>

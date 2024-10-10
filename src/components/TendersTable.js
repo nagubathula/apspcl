@@ -13,7 +13,9 @@ const TendersTable = () => {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/tenders");
+        const res = await axios.get(
+          "https://apspclbackend.onrender.com/api/tenders"
+        );
         setTenders(res.data);
         setFilteredTenders(res.data); // Initialize filtered tenders with all fetched tenders
       } catch (err) {
@@ -53,7 +55,9 @@ const TendersTable = () => {
     );
     if (confirmed) {
       try {
-        await axios.delete(`http://localhost:5000/api/tenders/${id}`);
+        await axios.delete(
+          `https://apspclbackend.onrender.com/api/tenders/${id}`
+        );
         // Remove the deleted tender from the state
         setTenders(tenders.filter((tender) => tender._id !== id));
         setFilteredTenders(
