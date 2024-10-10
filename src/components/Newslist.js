@@ -10,7 +10,7 @@ const NewsList = () => {
   useEffect(() => {
     const fetchNews = async () => {
       try {
-        const res = await fetch("https://apspclbackend.onrender.com/api/news");
+        const res = await fetch("http://localhost:5000/api/news");
         if (!res.ok) {
           throw new Error("Failed to fetch news");
         }

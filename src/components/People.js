@@ -11,9 +11,7 @@ const People = () => {
   useEffect(() => {
     const fetchPeople = async () => {
       try {
-        const response = await axios.get(
-          "https://apspclbackend.onrender.com/api/people"
-        );
+        const response = await axios.get("http://localhost:5000/api/people");
         setPeople(response.data);
       } catch (err) {
         setError("Failed to fetch people data");

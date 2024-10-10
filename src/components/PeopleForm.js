@@ -29,17 +29,13 @@ const PeopleForm = ({ person, onClose, onSubmitSuccess, onDelete }) => {
     try {
       if (person) {
         await axios.put(
-          `https://apspclbackend.onrender.com/api/people/${person._id}`,
+          `http://localhost:5000/api/people/${person._id}`,
           formData
         );
       } else {
-        await axios.post(
-          "https://apspclbackend.onrender.com/api/people",
-          formData,
-          {
-            headers: { "Content-Type": "multipart/form-data" },
-          }
-        );
+        await axios.post("http://localhost:5000/api/people", formData, {
+          headers: { "Content-Type": "multipart/form-data" },
+        });
       }
       if (onSubmitSuccess) onSubmitSuccess(); // Call the success callback
       onClose(); // Close the form after successful submission
@@ -51,9 +47,7 @@ const PeopleForm = ({ person, onClose, onSubmitSuccess, onDelete }) => {
   const handleDelete = async () => {
     if (person) {
       try {
-        await axios.delete(
-          `https://apspclbackend.onrender.com/api/people/${person._id}`
-        );
+        await axios.delete(`http://localhost:5000/api/people/${person._id}`);
         if (onDelete) onDelete(); // Call the delete callback
         onClose(); // Close the form after successful deletion
       } catch (err) {

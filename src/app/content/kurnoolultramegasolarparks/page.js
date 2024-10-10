@@ -25,7 +25,7 @@ export default function Home() {
           "Land Lease Agreement for Grid Connected Solar Photo Voltaic Projects Under Batch-II Tranche-I",
         link_text: "1441454536400_Modified LLA,5.9.15 (1).docx",
         link_url:
-          "https://apspclbackend.onrender.com/api/uploads/informationtobidder/information_22173161.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_22173161.docx",
       },
       {
         sl_no: 2,
@@ -33,14 +33,14 @@ export default function Home() {
           "Revised Charges Payable by SPDs for Kurnool Ultra Mega Solar Park (1000 MW)",
         link_text: "Revised charges, dt.31.7.15.docx",
         link_url:
-          "https://apspclbackend.onrender.com/api/uploads/informationtobidder/information_13397875.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_13397875.docx",
       },
       {
         sl_no: 3,
         description: "Modified Implementation & Support Agreement",
         link_text: "Modified ISA.5.9.15.docx",
         link_url:
-          "https://apspclbackend.onrender.com/api/uploads/informationtobidder/information_18225564.docx",
+          "http://localhost:5000/api/uploads/informationtobidder/information_18225564.docx",
       },
       {
         sl_no: 4,
@@ -48,7 +48,7 @@ export default function Home() {
           "Local Area Development Charges For Kurnool Ultra Mega Solar Park (1000 MW)",
         link_text: "Local Area Development Charges.Pdf",
         link_url:
-          "https://apspclbackend.onrender.com/api/uploads/informationtobidder/information_14257377.pdf",
+          "http://localhost:5000/api/uploads/informationtobidder/information_14257377.pdf",
       },
     ],
   };

@@ -20,9 +20,7 @@ const DownloadManager = () => {
   // Fetch downloads from backend
   const fetchDownloads = async () => {
     try {
-      const response = await axios.get(
-        "https://apspclbackend.onrender.com/api/downloads"
-      );
+      const response = await axios.get("http://localhost:5000/api/downloads");
       setDownloads(response.data);
     } catch (error) {
       console.error("Failed to fetch downloads", error);
@@ -51,18 +49,12 @@ const DownloadManager = () => {
     try {
       if (editMode) {
         // Update download
-        await axios.put(
-          `https://apspclbackend.onrender.com/api/downloads/${editId}`,
-          form
-        );
+        await axios.put(`http://localhost:5000/api/downloads/${editId}`, form);
         setEditMode(false);
         setEditId(null);
       } else {
         // Create new download
-        await axios.post(
-          "https://apspclbackend.onrender.com/api/downloads",
-          form
-        );
+        await axios.post("http://localhost:5000/api/downloads", form);
       }
       fetchDownloads(); // Refresh list after submission
       setFormData({ title: "", description: "", file: null });
@@ -81,9 +73,7 @@ const DownloadManager = () => {
   // Handle delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(
-        `https://apspclbackend.onrender.com/api/downloads/${id}`
-      );
+      await axios.delete(`http://localhost:5000/api/downloads/${id}`);
       fetchDownloads();
     } catch (error) {
       console.error("Failed to delete download", error);

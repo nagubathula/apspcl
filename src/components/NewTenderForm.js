@@ -80,13 +80,10 @@ const TenderForm = () => {
     formDataToSend.append("file", file);
 
     try {
-      const response = await fetch(
-        "https://apspclbackend.onrender.com/api/tenders",
-        {
-          method: "POST",
-          body: formDataToSend,
-        }
-      );
+      const response = await fetch("http://localhost:5000/api/tenders", {
+        method: "POST",
+        body: formDataToSend,
+      });
 
       if (response.ok) {
         const result = await response.json();

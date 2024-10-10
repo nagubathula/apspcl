@@ -20,9 +20,7 @@ const NewTenderFetch = () => {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const response = await fetch(
-          "https://apspclbackend.onrender.com/api/tenders"
-        );
+        const response = await fetch("http://localhost:5000/api/tenders");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
