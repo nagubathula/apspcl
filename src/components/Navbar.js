@@ -25,8 +25,8 @@ const Navbar = () => {
   };
 
   return (
-    <div className="z-50 bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 shadow-md">
-      <nav className="container mx-auto px-4 py-3 ">
+    <div className="z-50 bg-gradient-to-r text-xs from-blue-500 via-blue-600 to-blue-700 shadow-md">
+      <nav className="w-full mx-auto px-4 py-3 ">
         <div className="flex justify-between items-center">
           {/* Menu Toggle for Mobile */}
           <div className="md:hidden">
