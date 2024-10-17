@@ -82,6 +82,22 @@ export default function RootLayout({ children }) {
                 Downloads
                 </a>
               </li>
+              <li className="mb-2">
+                <a
+                  href="/admin/goos"
+                  className="block p-2 hover:bg-neutral-700 rounded"
+                >
+                GOOS
+                </a>
+              </li>
+              <li className="mb-2">
+                <a
+                  href="/admin/circulars"
+                  className="block p-2 hover:bg-neutral-700 rounded"
+                >
+                Circulars
+                </a>
+              </li>
             </ul>
           </div>
         </nav>

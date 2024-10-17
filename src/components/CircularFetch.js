@@ -129,7 +129,7 @@ const CircularFetch = () => {
                 } transition duration-200 hover:bg-gray-200`}
             >
               <td className="border border-gray-300 p-4">{circular.title}</td>
-              <td className="border border-gray-300 p-4">{circular.startYear} - {circular.endYear || "N/A"}</td>
+              <td className="border border-gray-300 p-4">{circular.startYear}</td>
               
               <td className="border border-gray-300 p-4">{circular.circularNumber}</td>
               <td className="border border-gray-300 p-4">
