@@ -13,7 +13,6 @@ import NewsList from "@/components/Newslist";
 import TendersList from "@/components/LatestTendersList";
 // import footerLinksData from '@/data/footerLinks.json';
 
-
 export default function Home() {
   return (
     <div className="relative">
@@ -26,10 +25,15 @@ export default function Home() {
           <ImageSlider />
           {/* <QuickLink2 /> */}
           {/* <AboutApspcl /> */}
+          <div className="w-full flex flex-row">
+            <div className="w-1/2">
+              <NewsList />
+            </div>
+            <div className="w-1/2">
+              <TendersList />
+            </div>
+          </div>
           <div className="bg-gray-100 mt-4 lg:mt-8">
-            
-            <NewsList />
-            <TendersList />
             <About />
           </div>
           {/* <div className="container mx-auto p-4">
