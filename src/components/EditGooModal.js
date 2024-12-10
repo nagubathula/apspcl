@@ -42,7 +42,7 @@ const EditModal = ({ isOpen, onClose, goo, onUpdate }) => {
 
     try {
       const response = await fetch(
-        `http://localhost:5000/api/goos/${goo._id}`,
+        `https://apspcl.ap.gov.in/api/goos/${goo._id}`,
         {
           method: "PUT",
           headers: {
@@ -69,7 +69,10 @@ const EditModal = ({ isOpen, onClose, goo, onUpdate }) => {
 
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
-      <div className="fixed inset-0 bg-black opacity-50" onClick={onClose}></div>
+      <div
+        className="fixed inset-0 bg-black opacity-50"
+        onClick={onClose}
+      ></div>
       <div className="bg-white rounded-lg shadow-lg z-10 p-6 max-w-md w-full">
         <h2 className="text-xl font-semibold mb-4">Edit GOO</h2>
         <form onSubmit={handleSubmit}>

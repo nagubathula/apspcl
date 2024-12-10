@@ -15,7 +15,7 @@ const CircularFetch = () => {
   useEffect(() => {
     const fetchCIRCULARs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/circulars");
+        const response = await fetch("https://apspcl.ap.gov.in/api/circulars");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -53,9 +53,12 @@ const CircularFetch = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this CIRCULAR?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/circulars/${id}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `https://apspcl.ap.gov.in/api/circulars/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to delete CIRCULAR");
@@ -74,7 +77,9 @@ const CircularFetch = () => {
   // Handle update action
   const handleUpdate = (updatedCIRCULAR) => {
     setCIRCULARs(
-      circulars.map((circular) => (circular._id === updatedCIRCULAR._id ? updatedCIRCULAR : circular))
+      circulars.map((circular) =>
+        circular._id === updatedCIRCULAR._id ? updatedCIRCULAR : circular
+      )
     );
     filterCIRCULARs(); // Re-filter after update
   };
@@ -106,7 +111,7 @@ const CircularFetch = () => {
             <th className="border border-gray-300 p-4 text-left text-sm font-semibold text-gray-700">
               Start Year
             </th>
-           
+
             <th className="border border-gray-300 p-4 text-left text-sm font-semibold text-gray-700">
               CIRCULAR Number
             </th>
@@ -125,17 +130,24 @@ const CircularFetch = () => {
           {filteredCIRCULARs.map((circular, index) => (
             <tr
               key={circular._id}
-              className={`bg-white ${index % 2 === 0 ? "bg-gray-50" : ""
-                } transition duration-200 hover:bg-gray-200`}
+              className={`bg-white ${
+                index % 2 === 0 ? "bg-gray-50" : ""
+              } transition duration-200 hover:bg-gray-200`}
             >
               <td className="border border-gray-300 p-4">{circular.title}</td>
-              <td className="border border-gray-300 p-4">{circular.startYear}</td>
-              
-              <td className="border border-gray-300 p-4">{circular.circularNumber}</td>
+              <td className="border border-gray-300 p-4">
+                {circular.startYear}
+              </td>
+
+              <td className="border border-gray-300 p-4">
+                {circular.circularNumber}
+              </td>
               <td className="border border-gray-300 p-4">
                 {new Date(circular.circularDate).toLocaleDateString()}
               </td>
-              <td className="border border-gray-300 p-4">{circular.issuedBy}</td>
+              <td className="border border-gray-300 p-4">
+                {circular.issuedBy}
+              </td>
               <td className="border border-gray-300 p-4">
                 <a
                   href={circular.link}

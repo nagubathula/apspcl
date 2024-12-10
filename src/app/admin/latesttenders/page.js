@@ -19,7 +19,7 @@ const TendersUploadForm = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/latest/tenders", {
+      const res = await fetch("https://apspcl.ap.gov.in/api/latest/tenders", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

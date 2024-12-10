@@ -15,7 +15,7 @@ const GooFetch = () => {
   useEffect(() => {
     const fetchGOOs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/goos");
+        const response = await fetch("https://apspcl.ap.gov.in/api/goos");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -53,9 +53,12 @@ const GooFetch = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this GOO?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/goos/${id}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `https://apspcl.ap.gov.in/api/goos/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to delete GOO");
@@ -73,9 +76,7 @@ const GooFetch = () => {
 
   // Handle update action
   const handleUpdate = (updatedGOO) => {
-    setGOOs(
-      goos.map((goo) => (goo._id === updatedGOO._id ? updatedGOO : goo))
-    );
+    setGOOs(goos.map((goo) => (goo._id === updatedGOO._id ? updatedGOO : goo)));
     filterGOOs(); // Re-filter after update
   };
 
@@ -106,7 +107,7 @@ const GooFetch = () => {
             <th className="border border-gray-300 p-4 text-left text-sm font-semibold text-gray-700">
               Start Year
             </th>
-           
+
             <th className="border border-gray-300 p-4 text-left text-sm font-semibold text-gray-700">
               GOO Number
             </th>
@@ -125,12 +126,15 @@ const GooFetch = () => {
           {filteredGOOs.map((goo, index) => (
             <tr
               key={goo._id}
-              className={`bg-white ${index % 2 === 0 ? "bg-gray-50" : ""
-                } transition duration-200 hover:bg-gray-200`}
+              className={`bg-white ${
+                index % 2 === 0 ? "bg-gray-50" : ""
+              } transition duration-200 hover:bg-gray-200`}
             >
               <td className="border border-gray-300 p-4">{goo.title}</td>
-              <td className="border border-gray-300 p-4">{goo.startYear} - {goo.endYear || "N/A"}</td>
-              
+              <td className="border border-gray-300 p-4">
+                {goo.startYear} - {goo.endYear || "N/A"}
+              </td>
+
               <td className="border border-gray-300 p-4">{goo.gooNumber}</td>
               <td className="border border-gray-300 p-4">
                 {new Date(goo.gooDate).toLocaleDateString()}

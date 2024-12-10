@@ -20,7 +20,9 @@ const DownloadManager = () => {
   // Fetch downloads from backend
   const fetchDownloads = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/downloads");
+      const response = await axios.get(
+        "https://apspcl.ap.gov.in/api/downloads"
+      );
       setDownloads(response.data);
     } catch (error) {
       console.error("Failed to fetch downloads", error);
@@ -49,12 +51,15 @@ const DownloadManager = () => {
     try {
       if (editMode) {
         // Update download
-        await axios.put(`http://localhost:5000/api/downloads/${editId}`, form);
+        await axios.put(
+          `https://apspcl.ap.gov.in/api/downloads/${editId}`,
+          form
+        );
         setEditMode(false);
         setEditId(null);
       } else {
         // Create new download
-        await axios.post("http://localhost:5000/api/downloads", form);
+        await axios.post("https://apspcl.ap.gov.in/api/downloads", form);
       }
       fetchDownloads(); // Refresh list after submission
       setFormData({ title: "", description: "", file: null });
@@ -73,7 +78,7 @@ const DownloadManager = () => {
   // Handle delete
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/downloads/${id}`);
+      await axios.delete(`https://apspcl.ap.gov.in/api/downloads/${id}`);
       fetchDownloads();
     } catch (error) {
       console.error("Failed to delete download", error);

@@ -63,7 +63,7 @@ const GOOForm = () => {
     formDataToSend.append("file", formData.file);
 
     try {
-      const response = await fetch("http://localhost:5000/api/goos", {
+      const response = await fetch("https://apspcl.ap.gov.in/api/goos", {
         method: "POST",
         body: formDataToSend,
       });

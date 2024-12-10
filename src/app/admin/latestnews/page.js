@@ -17,7 +17,7 @@ const NewsUploadForm = () => {
 
   const fetchNews = async () => {
     try {
-      const res = await fetch("http://localhost:5000/api/news", {
+      const res = await fetch("https://apspcl.ap.gov.in/api/news", {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ const NewsUploadForm = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:5000/api/news", {
+      const res = await fetch("https://apspcl.ap.gov.in/api/news", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -81,7 +81,7 @@ const NewsUploadForm = () => {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/news/${editNews._id}`,
+        `https://apspcl.ap.gov.in/api/news/${editNews._id}`,
         {
           method: "PUT",
           headers: {

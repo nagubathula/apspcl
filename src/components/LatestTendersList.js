@@ -12,7 +12,9 @@ const TendersList = () => {
   useEffect(() => {
     const fetchTenders = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/tenders");
+        const response = await axios.get(
+          "https://apspcl.ap.gov.in/api/tenders"
+        );
         const filteredTenders = response.data
           .filter(
             (tender) =>
@@ -38,9 +40,12 @@ const TendersList = () => {
       if (listRef.current && isScrolling) {
         // Scroll down by a fixed amount
         listRef.current.scrollTop += 1; // Adjust scroll speed as needed
-        
+
         // If at the bottom, reset to the top
-        if (listRef.current.scrollTop >= listRef.current.scrollHeight - listRef.current.clientHeight) {
+        if (
+          listRef.current.scrollTop >=
+          listRef.current.scrollHeight - listRef.current.clientHeight
+        ) {
           listRef.current.scrollTop = 0;
         }
       }

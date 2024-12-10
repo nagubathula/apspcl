@@ -15,7 +15,7 @@ const NewGOOAdminFetch = () => {
   useEffect(() => {
     const fetchGOOs = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/goos");
+        const response = await fetch("https://apspcl.ap.gov.in/api/goos");
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
@@ -53,9 +53,12 @@ const NewGOOAdminFetch = () => {
   const handleDelete = async (id) => {
     if (window.confirm("Are you sure you want to delete this GOO?")) {
       try {
-        const response = await fetch(`http://localhost:5000/api/goos/${id}`, {
-          method: "DELETE",
-        });
+        const response = await fetch(
+          `https://apspcl.ap.gov.in/api/goos/${id}`,
+          {
+            method: "DELETE",
+          }
+        );
 
         if (!response.ok) {
           throw new Error("Failed to delete GOO");
@@ -73,9 +76,7 @@ const NewGOOAdminFetch = () => {
 
   // Handle update action
   const handleUpdate = (updatedGOO) => {
-    setGOOs(
-      goos.map((goo) => (goo._id === updatedGOO._id ? updatedGOO : goo))
-    );
+    setGOOs(goos.map((goo) => (goo._id === updatedGOO._id ? updatedGOO : goo)));
     filterGOOs(); // Re-filter after update
   };
 

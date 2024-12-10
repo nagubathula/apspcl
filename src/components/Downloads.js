@@ -13,7 +13,9 @@ const DownloadManager = () => {
   // Fetch downloads from backend
   const fetchDownloads = async () => {
     try {
-      const response = await axios.get("http://localhost:5000/api/downloads");
+      const response = await axios.get(
+        "https://apspcl.ap.gov.in/api/downloads"
+      );
       setDownloads(response.data);
     } catch (error) {
       console.error("Failed to fetch downloads", error);
@@ -22,7 +24,6 @@ const DownloadManager = () => {
 
   return (
     <div className="w-full mx-auto ">
-      
       <ul className="list-disc pl-5 space-y-2">
         {downloads.map((download) => (
           <li key={download._id}>
